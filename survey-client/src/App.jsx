@@ -1,19 +1,24 @@
 
+import { Outlet } from 'react-router-dom'
 import './App.css'
-import Banner from './components/Header/Banner'
 import Nav from './components/Header/Nav'
+
 
 function App() {
   
 
   return (
-    <div className='text-center'>
-
+    <div>
       <Nav></Nav>
-      <Banner></Banner>
 
+      <div >
+        <Outlet />
+      </div>
+      
     </div>
   )
+
+  
 }
 
 export default App

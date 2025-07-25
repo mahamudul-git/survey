@@ -1,6 +1,7 @@
 import logo from "/logo.png";
 import { RiMenuUnfoldLine } from "react-icons/ri";
 import { TbWorld } from "react-icons/tb";
+import { Link } from "react-router-dom";
 const Nav = () => {
   return (
     <div>
@@ -126,9 +127,9 @@ const Nav = () => {
             <p className="mx-4">Contact Sales</p>
           </div>
           <div className="hidden md:block">
-            <a className="btn  mr-3">Login</a>
+            <Link to="/login" className="btn mr-3">Login</Link>
           </div>
-          <a className="btn  bg-yellow-300">Sign Up Free</a>
+          <Link to="/signup" className="btn bg-[#FFC107]">Sign Up Free</Link>
         </div>
       </div>
     </div>
