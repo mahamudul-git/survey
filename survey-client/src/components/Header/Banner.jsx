@@ -3,18 +3,51 @@ import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
   const navigate = useNavigate();
+  const messages = [
+    "login and earn your money",
+    "get paid for your opinion",
+    "start surveys, start earning",
+    "easy cash, easy surveys",
+    "join, answer, get rewards"
+  ];
   const [placeholder, setPlaceholder] = useState("");
-  const fullText = "login and earn your money";
+  const [msgIndex, setMsgIndex] = useState(0);
+  const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
     let i = 0;
-    const interval = setInterval(() => {
-      setPlaceholder(fullText.slice(0, i));
-      i++;
-      if (i > fullText.length) clearInterval(interval);
-    }, 80);
-    return () => clearInterval(interval);
-  }, []);
+    let typingInterval;
+    let cursorInterval;
+    let restartTimeout;
+
+    const typeMessage = () => {
+      typingInterval = setInterval(() => {
+        setPlaceholder(messages[msgIndex].slice(0, i));
+        i++;
+        if (i > messages[msgIndex].length) {
+          clearInterval(typingInterval);
+          restartTimeout = setTimeout(() => {
+            setMsgIndex((prev) => (prev + 1) % messages.length);
+            i = 0;
+            typeMessage();
+          }, 3000);
+        }
+      }, 80);
+    };
+
+    typeMessage();
+
+    cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+
+    return () => {
+      clearInterval(typingInterval);
+      clearInterval(cursorInterval);
+      clearTimeout(restartTimeout);
+    };
+    // eslint-disable-next-line
+  }, [msgIndex]);
   return (
     <section className="bg-[#004030] min-h-[70vh] flex items-center justify-center px-2 py-6 md:px-4 md:py-10">
       <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10">
@@ -43,7 +76,7 @@ const Banner = () => {
 
           {/* Right Side: Card */}
           <div className="w-full md:w-1/2 flex justify-center">
-            <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 w-full max-w-md cursor-pointer" onClick={() => navigate('/login')}>
+            <div className="bg-white rounded-2xl  shadow-2xl p-4 sm:p-6 md:p-8 w-full max-w-md cursor-pointer" onClick={() => navigate('/login')}>
               <div className="flex justify-center mb-4">
                 <div className="bg-green-100 rounded-full p-3">
                   <span className="text-green-600 text-3xl">$</span>
@@ -65,8 +98,8 @@ const Banner = () => {
                 <input
                   id="email"
                   type="email"
-                  placeholder={placeholder}
-                  className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-100"
+                  placeholder={placeholder + (showCursor ? "|" : " ")}
+                  className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-100 font-mono"
                   readOnly
                 />
                 <button

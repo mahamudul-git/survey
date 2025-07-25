@@ -67,7 +67,7 @@ const Nav = () => {
             <img src={logo} alt="Logo" className=" w-10 inline-block mr-2" />
             <span className="hidden md:block text-2xl">E-Survey</span>
           </a>
-          <div className="hidden md:block font-semibold ">
+          <div className="hidden lg:block font-semibold ">
             <ul className="menu menu-horizontal  px-1 text-[15px]">
               <li>
                 <details>

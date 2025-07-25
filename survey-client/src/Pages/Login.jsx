@@ -1,19 +1,22 @@
 
 
 
+import { Link, useNavigate } from "react-router-dom";
+
 const Login = () => {
+  const navigate = useNavigate();
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 backdrop-blur-sm">
-      <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md relative">
-        <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold" onClick={() => window.history.back()}>&times;</button>
+      <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md relative overflow-y-auto max-h-screen">
+        <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold" onClick={() => navigate("/") }>&times;</button>
         <div className="flex justify-center mb-4">
           <div className="bg-green-100 rounded-full p-3">
             <span className="text-green-600 text-3xl">$</span>
           </div>
         </div>
         <div className="flex justify-center gap-8 mb-6">
-          <button className="text-[#e91e63] text-xl font-semibold border-b-2 border-[#e91e63] pb-1">Log in</button>
-          <button className="text-gray-500 text-xl font-semibold pb-1" onClick={() => window.location.replace('/signup')}>Sign up</button>
+          <button className="text-[#347433] text-xl font-semibold border-b-2 border-[#347433] pb-1">Log in</button>
+          <Link to="/signup" className="text-gray-500 text-xl font-semibold pb-1 focus:outline-none">Sign up</Link>
         </div>
         <button className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-3 flex items-center justify-center gap-2">
           <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" /> Continue with Google
