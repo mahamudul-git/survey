@@ -1,19 +1,26 @@
 
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import Nav from './components/Header/Nav'
+import Footer from './components/Footer/Footer'
+
 
 function App() {
   
 
   return (
-    <div className='text-center'>
+    <div>
+      <Nav></Nav>
 
-      <h1 className='font-bold text-4xl'>Survey Client</h1>
-      <p>Welcome to the Survey Client application!</p>
-
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A quia, sit adipisci repellendus quas magni minima sint corporis animi illo?</p>
-
+      <div >
+        <Outlet />
+      </div>
+      <Footer></Footer>
+      
     </div>
   )
+
+  
 }
 
 export default App
