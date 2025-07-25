@@ -1,5 +1,7 @@
 
 import './App.css'
+import Banner from './components/Header/Banner'
+import Nav from './components/Header/Nav'
 
 function App() {
   
@@ -7,10 +9,8 @@ function App() {
   return (
     <div className='text-center'>
 
-      <h1 className='font-bold text-4xl'>Survey Client</h1>
-      <p>Welcome to the Survey Client application!</p>
-
-      <p>consectetur adipisicing elit. A quia, sit adipisci repellendus quas magni minima sint corporis animi illo?</p>
+      <Nav></Nav>
+      <Banner></Banner>
 
     </div>
   )
