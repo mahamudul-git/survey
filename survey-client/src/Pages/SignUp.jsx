@@ -1,11 +1,62 @@
 
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import { FiEye } from "react-icons/fi";
+import { GoEyeClosed } from "react-icons/go";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+
+import { useState } from "react";
 
 const SignUp = () => {
-  const navigate = useNavigate();
-  return (
+    const {createUser,logOut}=useContext(AuthContext);
+    const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState("");
+
+    const handleSignUp = (event) => {
+        event.preventDefault();
+        setError("");
+        const form = event.target;
+        const name = form.name.value.trim(); 
+        const profession = form.profession.value;
+        const email = form.email.value.trim();
+        const password = form.password.value;
+
+        // Simple validation
+        if (!name) {
+            setError("Name is required.");
+            return;
+        }
+        if (!profession) {
+            setError("Profession is required.");
+            return;
+        }
+        if (!email) {
+            setError("Email is required.");
+            return;
+        }
+        if (!password) {
+            setError("Password is required.");
+            return;
+        }
+        if (password.length < 6) {
+            setError("Password must be at least 6 characters.");
+            return;
+        }
+
+        createUser(email, password)
+            .then(() => {
+                navigate("/login");
+                toast.success("Sign up successful!");
+                logOut() // Log out after sign up
+            })
+            .catch((error) => {
+                setError(error.message || "Sign up failed.");
+            });
+    }
+
+    return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 backdrop-blur-sm">
       <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md relative overflow-y-auto max-h-screen">
         <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold" onClick={() => navigate("/") }>&times;</button>
@@ -22,11 +73,11 @@ const SignUp = () => {
           <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" /> Continue with Google
         </button>
         <div className="flex items-center my-4"><span className="flex-1 h-px bg-gray-300" /><span className="mx-2 text-gray-400">or</span><span className="flex-1 h-px bg-gray-300" /></div>
-        <form className="flex flex-col gap-3">
+        <form className="flex flex-col gap-3" onSubmit={handleSignUp}>
           <label htmlFor="name" className="text-sm font-medium text-gray-700 text-left">Name</label>
-          <input id="name" type="text" required placeholder="Enter your name" className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" />
+          <input id="name" name="name" type="text" required placeholder="Enter your name" className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" />
           <label htmlFor="profession" className="text-sm font-medium text-gray-700 text-left">Profession</label>
-          <select id="profession" required className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+          <select id="profession" name="profession" required className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
             <option value="">Select profession</option>
             <option value="student">Student</option>
             <option value="job">Job</option>
@@ -34,9 +85,28 @@ const SignUp = () => {
             <option value="other">Other</option>
           </select>
           <label htmlFor="email" className="text-sm font-medium text-gray-700 text-left">E-mail</label>
-          <input id="email" type="email" required placeholder="Enter your email" className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" />
+          <input id="email" name="email" type="email" required placeholder="Enter your email" className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" />
           <label htmlFor="password" className="text-sm font-medium text-gray-700 text-left">Password</label>
-          <input id="password" type="password" required placeholder="Password" className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" />
+          <div className="relative">
+            <input
+              id="password"
+              name="password"
+              type={showPassword ? "text" : "password"}
+              required
+              placeholder="Password"
+              className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 w-full pr-10"
+            />
+            <span
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-xl cursor-pointer text-gray-500"
+              onClick={() => setShowPassword((prev) => !prev)}
+              tabIndex={0}
+              role="button"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? <GoEyeClosed /> : <FiEye />}
+            </span>
+          </div>
+          {error && <div className="text-red-500 text-sm mt-1">{error}</div>}
           <button type="submit" className="bg-[#347433] hover:bg-green-700 text-white font-semibold rounded-lg px-4 py-2 mt-2">Sign up</button>
         </form>
       </div>
