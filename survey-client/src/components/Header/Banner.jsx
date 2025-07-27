@@ -8,7 +8,7 @@ const Banner = () => {
     "get paid for your opinion",
     "start surveys, start earning",
     "easy cash, easy surveys",
-    "join, answer, get rewards"
+    "join, answer, get rewards",
   ];
   const [placeholder, setPlaceholder] = useState("");
   const [msgIndex, setMsgIndex] = useState(0);
@@ -76,7 +76,10 @@ const Banner = () => {
 
           {/* Right Side: Card */}
           <div className="w-full md:w-1/2 flex justify-center">
-            <div className="bg-white rounded-2xl  shadow-2xl p-4 sm:p-6 md:p-8 w-full max-w-md cursor-pointer" onClick={() => navigate('/login')}>
+            <div
+              className="bg-white rounded-2xl  shadow-2xl p-4 sm:p-6 md:p-8 w-full max-w-md cursor-pointer"
+              onClick={() => navigate("/login")}
+            >
               <div className="flex justify-center mb-4">
                 <div className="bg-green-100 rounded-full p-3">
                   <span className="text-green-600 text-3xl">$</span>
@@ -123,7 +126,9 @@ const Banner = () => {
             </div>
           </div>
         </div>
+       
       </div>
+       
     </section>
   );
 };
