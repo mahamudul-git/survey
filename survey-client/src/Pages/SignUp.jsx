@@ -61,6 +61,7 @@ const SignUp = () => {
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
+              uid: user?.uid,
               name,
               email,
               password,
@@ -120,30 +121,25 @@ const SignUp = () => {
             try {
               const result = await signInWithGoogle();
               const googleUser = result.user;
-              // Show extra info form after Google signup
-              setGoogleName(googleUser.displayName || "");
-              setGooglePhoto(googleUser.photoURL || "");
-              // Collect profession and role, then send to backend
-              // You may want to show a modal or redirect to a profile completion page here
-              // Example POST request:
-              // await fetch(`${API_BASE_URL}/api/users/register`, {
-              //   method: "POST",
-              //   headers: { "Content-Type": "application/json" },
-              //   body: JSON.stringify({
-              //     uid: googleUser.uid,
-              //     email: googleUser.email,
-              //     name: googleUser.displayName,
-              //     photoURL: googleUser.photoURL,
-              //     profession,
-              //     role: "surveyor"
-              //   })
-              // });
-              toast.success("Sign up successful!");
+              // Register user in backend if not exists
+              await fetch(`${API_BASE_URL}/api/users/google`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  uid: googleUser.uid,
+                  name: googleUser.displayName,
+                  email: googleUser.email,
+                  photoURL: googleUser.photoURL,
+                  profession: "unknown",
+                  role: "surveyor"
+                })
+              });
+              toast.success("Google sign-up successful!");
               setTimeout(() => {
-                navigate("/login");
+                navigate("/");
               }, 1200);
             } catch (error) {
-              setError(error.message || "Sign-up failed.");
+              setError(error.message || "Google sign-up failed.");
             }
           }}
         >

@@ -32,3 +32,18 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
+
+exports.googleAuth = async (req, res) => {
+  try {
+    const { uid, name, email, photoURL, profession, role } = req.body;
+    let user = await User.findOne({ email });
+    if (!user) {
+      user = await User.create({ uid, name, email, photoURL, profession, role });
+    }
+    // Optionally, generate a JWT token for session
+    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1d' });
+    res.status(200).json({ message: 'Google user registered', token });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};
