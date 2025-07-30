@@ -1,7 +1,7 @@
 import { GoEyeClosed } from "react-icons/go";
 import { FiEye } from "react-icons/fi";
 import { ToastContainer, toast } from 'react-toastify';
-import { useContext, useState } from "react";
+import {  useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { API_BASE_URL } from "../utils/api";
@@ -9,6 +9,7 @@ import { API_BASE_URL } from "../utils/api";
 const Login = () => {
   const { signIn, signInWithGoogle, user } = useContext(AuthContext);
   const navigate = useNavigate();
+  console.log(user);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 

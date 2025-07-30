@@ -70,6 +70,7 @@ const SignUp = () => {
             })
           });
         } catch (err) {
+          console.log(err);
           // Optionally handle error
         }
         toast.success("Sign up successful!");

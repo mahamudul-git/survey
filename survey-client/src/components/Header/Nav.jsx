@@ -54,9 +54,7 @@ const Nav = () => {
               <li>
                 <a>Pricing</a>
               </li>
-              <li>
-                <a>Enterprise</a>
-              </li>
+              
               <li>
                 <details>
                   <summary>Resources</summary>
@@ -108,9 +106,7 @@ const Nav = () => {
               <li>
                 <a>Pricing</a>
               </li>
-              <li>
-                <a>Enterprise</a>
-              </li>
+              
               <li>
                 <details>
                   <summary>Resources</summary>

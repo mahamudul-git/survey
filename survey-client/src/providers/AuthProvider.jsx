@@ -40,8 +40,23 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth,email,password)
     }
 
-    const signInWithGoogle = () => {
-        return signInWithPopup(auth, googleProvider);
+    const signInWithGoogle = async () => {
+        const result = await signInWithPopup(auth, googleProvider);
+        const googleUser = result.user;
+        // Send user data to backend
+        await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}/api/users/google`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            uid: googleUser.uid || "",
+            name: googleUser.displayName || "",
+            email: googleUser.email || "",
+            photoURL: googleUser.photoURL || "",
+            profession: "", // always send empty string if missing
+            role: "surveyor"
+          })
+        });
+        return result;
       };
 
     const logOut=()=>{

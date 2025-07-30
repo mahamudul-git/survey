@@ -35,15 +35,35 @@ exports.loginUser = async (req, res) => {
 
 exports.googleAuth = async (req, res) => {
   try {
-    const { uid, name, email, photoURL, profession, role } = req.body;
+    console.log('Google Auth Request Body:', req.body);
+    const { uid, name, email, photoURL } = req.body;
+    // Accept only these fields from frontend, set defaults for others
+    if (!name || !email) {
+      console.error('Missing required fields:', { name, email });
+      return res.status(400).json({ message: 'Missing required fields', fields: { name, email } });
+    }
     let user = await User.findOne({ email });
     if (!user) {
-      user = await User.create({ uid, name, email, photoURL, profession, role });
+      try {
+        user = await User.create({
+          uid,
+          name,
+          email,
+          photoURL,
+          profession: "", // always empty string for Google users
+          role: "surveyor", // always set to surveyor for Google users
+          password: "" // Always set password to empty string for Google users
+        });
+      } catch (createError) {
+        console.error('User.create error:', createError);
+        return res.status(500).json({ message: 'User creation error', error: createError.message });
+      }
     }
     // Optionally, generate a JWT token for session
     const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1d' });
     res.status(200).json({ message: 'Google user registered', token });
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    console.error('Google Auth Error:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
   }
 };
