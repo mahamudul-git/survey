@@ -1,13 +1,15 @@
 import { FaGift, FaClipboardList, FaTag, FaUserCircle } from "react-icons/fa";
 import { FiChevronRight } from "react-icons/fi";
 import Earn from "../components/Dashboard/Earn";
+import Surveys from "../components/Dashboard/Surveys";
+import Offers from "../components/Dashboard/Offers";
 import logo2 from "../../public/logo2.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import LevelPopup from "../components/Dashboard/LevelPopup";
 
 const menu = [
-  { label: "Earn", icon: <FaGift />, active: true },
+  { label: "Earn", icon: <FaGift /> },
   { label: "Surveys", icon: <FaClipboardList /> },
   { label: "Offers", icon: <FaTag /> },
   { label: "Account", icon: <FaUserCircle /> },
@@ -23,6 +25,7 @@ const statistics = [
 const Dashboard = () => {
   const navigate = useNavigate();
   const [showLevelPopup, setShowLevelPopup] = useState(false);
+  const [activeTab, setActiveTab] = useState("earn");
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar - sticky */}
@@ -34,7 +37,8 @@ const Dashboard = () => {
           {menu.map((item, idx) => (
             <button
               key={item.label}
-              className={`flex items-center gap-3 px-4 py-2 rounded-lg text-lg font-semibold transition ${item.active ? "bg-green-50 text-green-700" : "text-gray-600 hover:bg-green-50"}`}
+              className={`flex items-center gap-3 px-4 py-2 rounded-lg text-lg font-semibold transition ${activeTab === item.label.toLowerCase() ? "bg-green-50 text-green-700" : "text-gray-600 hover:bg-green-50"}`}
+              onClick={() => setActiveTab(item.label.toLowerCase())}
             >
               {item.icon}
               <span className="tracking-tight">{item.label}</span>
@@ -44,9 +48,11 @@ const Dashboard = () => {
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col items-stretch relative overflow-hidden">
-        <div className="bg-white px-5 py-5">
-          <Earn />
+      <div className={`flex-1 flex flex-col items-stretch relative overflow-hidden ${activeTab === "earn" ? "bg-[#f7f7f7]" : "bg-white"}`}>
+        <div className="px-5 py-5">
+          {activeTab === "earn" && <Earn />}
+          {activeTab === "surveys" && <Surveys />}
+          {activeTab === "offers" && <Offers />}
         </div>
       </div>
 

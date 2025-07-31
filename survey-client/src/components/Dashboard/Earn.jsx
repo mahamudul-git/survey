@@ -79,7 +79,7 @@ const Earn = () => {
       {/* Header & Carousel Controls */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2 gap-2">
         <div className="flex items-center gap-2">
-          <h2 className="text-base md:text-lg font-semibold text-gray-800">Featured Offers</h2>
+          <h2 className="text-base md:text-xl font-bold text-gray-800">Featured Offers</h2>
           <button className="ml-2 px-2 md:px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-medium flex items-center gap-1 border border-gray-200">
             <MdDevices className="text-base" />
             <span className="hidden sm:inline">Change Devices</span>
