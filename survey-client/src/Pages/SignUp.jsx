@@ -100,7 +100,6 @@ const SignUp = () => {
           profession,
           role: "publisher"
         })
->>>>>>> 80f21d7408e65011751003c3167a641f787398a0
       });
       toast.success("Sign up successful!");
       setTimeout(() => {
