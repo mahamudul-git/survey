@@ -39,11 +39,11 @@ const surveys = [
 ];
 
 const Surveys = () => (
-  <div className="flex-1 px-2 py-4 md:px-6 md:py-8 w-full max-w-full bg-[#f7f7f7] rounded-3xl">
+  <div className="flex-1 px-5 py-6 md:px-2 md:px-[20px] md:py-8  w-full max-w-full bg-[#f7f7f7] rounded-3xl">
     <h3 className="text-base md:text-xl font-bold mb-4">All Surveys</h3>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:gap-4 w-full">
       {surveys.map((survey, idx) => (
-        <div key={idx} className="bg-white rounded-xl shadow-sm p-2 flex flex-col gap-2 border border-gray-100">
+        <div key={idx} className="bg-white rounded-xl shadow-sm p-2 flex flex-col gap-2 border border-gray-100 overflow-hidden relative ">
           <div className="flex items-center gap-1 text-xs text-gray-500 font-semibold mb-1">
             <span className="inline-block align-middle" style={{display:'flex',alignItems:'center'}}>
               <svg width="16" height="16" fill="none" viewBox="0 0 24 24" style={{display:'block'}}>
@@ -63,8 +63,36 @@ const Surveys = () => (
               {survey.rating}
             </span>
             <span className="text-gray-400">({survey.votes})</span>
-            <span className="ml-auto px-2 py-0.5 rounded-full bg-green-50 text-green-700 font-bold">{survey.bonus}</span>
+            
           </div>
+          <div className="absolute bottom-0 right-0 w-full h-full pointer-events-none select-none" style={{zIndex:2}}>
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  right: 0,
+                  width: '70px',
+                  height: '18px',
+                  background: 'linear-gradient(105deg, #fffbe9 60%, #ffe9c7 100%)',
+                  borderBottomRightRadius: '0.5rem',
+                  borderTopLeftRadius: '0.5rem',
+                  transform: 'rotate(-25deg) translate(10px, 5px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                }}
+              >
+                <span style={{
+                  color: '#e6a23c',
+                  fontWeight: 700,
+                  fontSize: '0.65rem',
+                  letterSpacing: '1px',
+                  fontFamily: 'inherit',
+                  marginLeft: '6px',
+                }}>{survey.bonus}</span>
+              </div>
+            </div>
         </div>
       ))}
     </div>
