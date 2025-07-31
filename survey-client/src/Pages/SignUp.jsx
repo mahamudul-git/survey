@@ -136,7 +136,7 @@ const SignUp = () => {
               });
               toast.success("Google sign-up successful!");
               setTimeout(() => {
-                navigate("/");
+                navigate("/dashboard");
               }, 1200);
             } catch (error) {
               setError(error.message || "Google sign-up failed.");
