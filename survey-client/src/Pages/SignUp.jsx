@@ -81,6 +81,34 @@ const SignUp = () => {
     } catch (error) {
       setError(error.message || "Sign up failed.");
     }
+    try {
+      await createUser(email, password);
+      // Get UID from Firebase Auth
+      const auth = getAuth();
+      const currentUser = auth.currentUser;
+      const uid = currentUser ? currentUser.uid : undefined;
+      await fetch(`${API_BASE_URL}/api/users/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          uid,
+          name,
+          email,
+          password,
+          profession,
+          role: "publisher"
+        })
+      });
+      toast.success("Sign up successful!");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
+      logOut(); // Log out after sign up
+    } catch (error) {
+      setError(error.message || "Sign up failed.");
+    }
   }
 
   return (
