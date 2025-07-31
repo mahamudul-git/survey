@@ -1,13 +1,13 @@
-
 import { GoEyeClosed } from "react-icons/go";
 import { FiEye } from "react-icons/fi";
 import { ToastContainer, toast } from 'react-toastify';
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { API_BASE_URL } from "../utils/api";
 
 const Login = () => {
-  const {signIn}=useContext(AuthContext);
+  const { signIn, signInWithGoogle, user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
@@ -30,7 +30,7 @@ const Login = () => {
 
     signIn(email, password)
       .then(() => {
-        navigate("/");
+        navigate("/dashboard");
         toast.success("Login successful!");
       })
       .catch((error) => {
@@ -50,7 +50,35 @@ const Login = () => {
           <button className="text-[#347433] text-xl font-semibold border-b-2 border-[#347433] pb-1">Log in</button>
           <Link to="/signup" className="text-gray-500 text-xl font-semibold pb-1 focus:outline-none">Sign up</Link>
         </div>
-        <button className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-3 flex items-center justify-center gap-2">
+        <button
+          className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-3 flex items-center justify-center gap-2"
+          type="button"
+          onClick={async () => {
+            try {
+              const result = await signInWithGoogle();
+              const googleUser = result.user;
+              // Register user in backend if not exists
+              await fetch(`${API_BASE_URL}/api/users/google`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  uid: googleUser.uid,
+                  name: googleUser.displayName,
+                  email: googleUser.email,
+                  photoURL: googleUser.photoURL,
+                  profession: "unknown",
+                  role: "surveyor"
+                })
+              });
+              toast.success("Google sign-in successful!");
+              setTimeout(() => {
+                navigate("/dashboard");
+              }, 1200);
+            } catch (error) {
+              setError(error.message || "Google sign-in failed.");
+            }
+          }}
+        >
           <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" /> Continue with Google
         </button>
         <div className="flex items-center my-4"><span className="flex-1 h-px bg-gray-300" /><span className="mx-2 text-gray-400">or</span><span className="flex-1 h-px bg-gray-300" /></div>
