@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { API_BASE_URL } from "../utils/api";
+import { getAuth } from "firebase/auth";
 
 const SignUp = () => {
   const { createUser, logOut, signInWithGoogle, user } = useContext(AuthContext);
@@ -21,7 +22,7 @@ const SignUp = () => {
     }
   }, [user]);
 
-  const handleSignUp = (event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
     setError("");
     const form = event.target;
@@ -52,35 +53,34 @@ const SignUp = () => {
       return;
     }
 
-    createUser(email, password)
-      .then(async () => {
-        try {
-          await fetch(`${API_BASE_URL}/api/users/register`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              uid: user?.uid,
-              name,
-              email,
-              password,
-              profession,
-              role: "publisher"
-            })
-          });
-        } catch (err) {
-          // Optionally handle error
-        }
-        toast.success("Sign up successful!");
-        setTimeout(() => {
-          navigate("/login");
-        }, 1000);
-        logOut(); // Log out after sign up
-      })
-      .catch((error) => {
-        setError(error.message || "Sign up failed.");
+    try {
+      await createUser(email, password);
+      // Get UID from Firebase Auth
+      const auth = getAuth();
+      const currentUser = auth.currentUser;
+      const uid = currentUser ? currentUser.uid : undefined;
+      await fetch(`${API_BASE_URL}/api/users/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          uid,
+          name,
+          email,
+          password,
+          profession,
+          role: "publisher"
+        })
       });
+      toast.success("Sign up successful!");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
+      logOut(); // Log out after sign up
+    } catch (error) {
+      setError(error.message || "Sign up failed.");
+    }
   }
 
   return (
