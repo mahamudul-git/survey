@@ -92,9 +92,9 @@ const FeaturedTests = () => {
   }, [carouselIdx]);
 
   return (
-    <div className="px-5 pt-6 md:px-2 md:px-[20px] md:pt-8 w-full max-w-full bg-[#f7f7f7] rounded-3xl">
+    <div className="w-full max-w-full rounded-3xl">
       <div className="flex items-center justify-between gap-4 mb-4">
-        <span className="text-base md:text-xl font-bold text-gray-800">Featured Tests</span>
+        <span className="text-lg font-semibold text-gray-900 ">Featured Testing</span>
         <div className="flex gap-2">
           <button
             className="rounded-full bg-[#e0ece7] w-8 h-8 flex items-center justify-center text-gray-500 border border-transparent hover:border-green-400 transition disabled:opacity-40"
