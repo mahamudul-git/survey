@@ -54,7 +54,7 @@ const Account = () => {
         <div className="w-full h-px bg-[#f4f4f4] my-4 sm:my-6" />
         <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full">
           <div className="flex flex-row gap-2 sm:gap-4 mb-3 sm:mb-0">
-            <button className="flex items-center gap-2 border border-[#e5e7eb] rounded-full px-4 sm:px-6 py-2 sm:py-3 font-semibold text-xs sm:text-base text-[#222] bg-white hover:bg-[#f7f7f7] transition">
+            <button className="flex items-center gap-2 border border-[#e5e7eb] rounded-full px-4 sm:px-6 py-2 sm:py-3 font-semibold text-xs sm:text-base text-[#222] bg-white hover:bg-green-50 transition">
               <FaCog className="text-[#222] text-lg" /> Account Settings
             </button>
           </div>

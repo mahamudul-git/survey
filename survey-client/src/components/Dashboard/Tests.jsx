@@ -197,15 +197,15 @@ const TestsHeader = ({ selectedDevice, setSelectedDevice }) => {
 	};
 
 	return (
-		<div ref={dropdownRef}>
+		<div className="mb-4" ref={dropdownRef}>
 			{/* Filter Bar */}
-			<div className="flex items-center justify-between gap-4 mb-4">
-				<span className="text-base md:text-xl font-bold text-gray-800">All Tests</span>
+			<div className="flex items-center justify-between gap-4">
+				<span className="text-lg font-semibold text-gray-900">All Tests</span>
 				<div className="relative">
 					<button
 						onClick={() => setDropdownOpen((v) => !v)}
-						className="ml-2 px-2 md:px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-medium flex items-center gap-1 border border-gray-200"
-						style={{ boxShadow: '0 1px 8px 0 rgba(0,0,0,0.04)' }}
+						className="ml-2 px-2 md:px-3 py-1 rounded-full bg-transparent text-gray-700 text-xs font-medium flex items-center gap-1 border border-gray-200"
+						
 					>
 						<img src="/windowsblack.svg" alt="Windows" className="w-4 h-4" />
 						<img src="/appleblack.svg" alt="Apple" className="w-4 h-4" />
@@ -244,7 +244,7 @@ const Tests = () => {
 	const filteredTests = selectedDevice === 'All' ? tests : tests.filter(t => t.device === selectedDevice);
 
 	return (
-		<div className="flex-1 px-5 py-6 md:px-2 md:px-[20px] md:py-8 bg-[#f7f7f7] rounded-3xl">
+		<div className="flex-1 rounded-3xl">
 			<TestsHeader selectedDevice={selectedDevice} setSelectedDevice={setSelectedDevice} />
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full">
 				{filteredTests.map((test, idx) => (

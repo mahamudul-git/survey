@@ -10,7 +10,7 @@ const TAB_LIST = [
   { name: "Testing", badge: 5 },
 ];
 
-const Earn = () => {
+const Home = () => {
   const [activeTab, setActiveTab] = useState("Featured");
   const handleSeeMoreClick = () => setActiveTab("Survey");
 
@@ -49,11 +49,13 @@ const Earn = () => {
               <div className="mt-6">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-semibold text-gray-900">Featured Surveys</h3>
-                  <button className="flex items-center border border-[#e5e7eb] rounded-full px-4 sm:px-4 py-1 sm:py-1 font-semibold text-xs sm:text-base text-[#222] bg-transparent hover:bg-green-50 transition"  onClick={handleSeeMoreClick} >
+                  <button
+                    className="flex items-center border border-[#e5e7eb] rounded-full px-4 sm:px-4 py-1 sm:py-1 font-semibold text-xs sm:text-base text-[#222] bg-transparent hover:bg-green-50 transition"
+                    onClick={handleSeeMoreClick}>
                     See More
                   </button>
                 </div>
-                <Surveys limit={8} />
+                <Surveys limit={4} />
               </div>
             </>
           )}
@@ -68,4 +70,4 @@ const Earn = () => {
   );
 };
 
-export default Earn;
+export default Home;

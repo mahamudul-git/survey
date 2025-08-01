@@ -1,8 +1,8 @@
-import { FaGift, FaClipboardList, FaTag, FaUserCircle, FaBars } from "react-icons/fa";
+import { FaHome,FaCoins, FaClipboardList, FaTag, FaUserCircle, FaBars } from "react-icons/fa";
 import { FiChevronRight } from "react-icons/fi";
+import Home from "../components/Dashboard/Home";
+import MyInsight from "../components/Dashboard/MyInsight";
 import Earn from "../components/Dashboard/Earn";
-import Surveys from "../components/Dashboard/Surveys";
-import Tests from "../components/Dashboard/Tests";
 import Account from "../components/Dashboard/Account";
 import logo2 from "../../public/logo2.png";
 import { useNavigate } from "react-router-dom";
@@ -10,9 +10,9 @@ import { useState, useEffect, useRef } from "react";
 import LevelPopup from "../components/Dashboard/LevelPopup";
 
 const menu = [
-  { label: "Earn", icon: <FaGift /> },
-  { label: "Surveys", icon: <FaClipboardList /> },
-  { label: "Tests", icon: <FaTag /> },
+  { label: "Home", icon: <FaHome /> },
+  { label: "MyInsight", icon: <FaClipboardList /> },
+  { label: "Earn", icon: <FaCoins /> },
   { label: "Account", icon: <FaUserCircle /> },
 ];
 
@@ -26,7 +26,7 @@ const statistics = [
 const Dashboard = () => {
   const navigate = useNavigate();
   const [showLevelPopup, setShowLevelPopup] = useState(false);
-  const [activeTab, setActiveTab] = useState("earn");
+  const [activeTab, setActiveTab] = useState("home");
   const [leftOpen, setLeftOpen] = useState(false);
   const [rightOpen, setRightOpen] = useState(false);
   const leftSidebarRef = useRef(null);
@@ -96,7 +96,7 @@ const Dashboard = () => {
           {menu.map((item, idx) => (
             <button
               key={item.label}
-              className={`flex items-center gap-3 px-4 py-2 rounded-lg text-lg font-semibold transition ${activeTab === item.label.toLowerCase() ? "bg-green-50 text-green-700" : "text-gray-600 hover:bg-green-50"}`}
+              className={`flex items-center gap-3 px-4 py-2 rounded-full text-lg font-semibold transition ${activeTab === item.label.toLowerCase() ? "bg-green-50 text-green-700" : "text-gray-600 hover:bg-green-50"}`}
               onClick={() => { setActiveTab(item.label.toLowerCase()); setLeftOpen(false); }}
             >
               {item.icon}
@@ -118,9 +118,9 @@ const Dashboard = () => {
       <div className="flex-1 flex flex-col items-stretch relative overflow-hidden bg-white mt-[56px] md:mt-0 min-w-0">
         {/* 56px header height for mobile */}
         <div className="px-3 py-6 md:px-4 md:py-6">
+          {activeTab === "home" && <Home />}
+          {activeTab === "myinsight" && <MyInsight />}
           {activeTab === "earn" && <Earn />}
-          {activeTab === "surveys" && <Surveys />}
-          {activeTab === "tests" && <Tests />}
           {activeTab === "account" && <Account />}
         </div>
       </div>
@@ -150,7 +150,7 @@ const Dashboard = () => {
                 <img src="/tokenwhite.svg" alt="SSC" className="w-7 h-7 mr-1 inline-block" />
                 {135}
               </div>
-              <div className="text-white text-lg font-bold">SSC</div>
+              <div className="text-white text-2xl font-bold">SSC</div>
             </div>
             <div className="flex items-center mt-3 justify-between w-full mb-2">
               <span className="text-white text-xs font-semibold">
