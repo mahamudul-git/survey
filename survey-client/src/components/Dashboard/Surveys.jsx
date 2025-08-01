@@ -1,41 +1,30 @@
 import React from "react";
 
 const surveys = [
-  { duration: "12 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 110, bonus: "+25%" },
-  { duration: "11 min", oldReward: "$1.50", reward: "$1.87", rating: "2.5/5", votes: 140, bonus: "+25%" },
-  { duration: "37 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 17, bonus: "+25%" },
-  { duration: "22 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 5, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.49", reward: "$0.61", rating: "2.5/5", votes: 28, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.15", reward: "$0.19", rating: "2.5/5", votes: 110, bonus: "+25%" },
-  { duration: "26 min", oldReward: "$0.28", reward: "$0.35", rating: "3/5", votes: 89, bonus: "+25%" },
-  { duration: "5 min", oldReward: "$0.03", reward: "$0.04", rating: "5/5", votes: 110, bonus: "+25%" },
-  { duration: "16 min", oldReward: "$0.49", reward: "$0.61", rating: "2/5", votes: 100, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.14", reward: "$0.17", rating: "4/5", votes: 7, bonus: "+25%" },
-  { duration: "21 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 18, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.18", reward: "$0.23", rating: "3/5", votes: 110, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 110, bonus: "+25%" },
-  { duration: "11 min", oldReward: "$1.50", reward: "$1.87", rating: "2.5/5", votes: 140, bonus: "+25%" },
-  { duration: "37 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 17, bonus: "+25%" },
-  { duration: "22 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 5, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.49", reward: "$0.61", rating: "2.5/5", votes: 28, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.15", reward: "$0.19", rating: "2.5/5", votes: 110, bonus: "+25%" },
-  { duration: "26 min", oldReward: "$0.28", reward: "$0.35", rating: "3/5", votes: 89, bonus: "+25%" },
-  { duration: "5 min", oldReward: "$0.03", reward: "$0.04", rating: "5/5", votes: 110, bonus: "+25%" },
-  { duration: "16 min", oldReward: "$0.49", reward: "$0.61", rating: "2/5", votes: 100, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.14", reward: "$0.17", rating: "4/5", votes: 7, bonus: "+25%" },
-  { duration: "21 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 18, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.18", reward: "$0.23", rating: "3/5", votes: 110, bonus: "+25%" },{ duration: "12 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 110, bonus: "+25%" },
-  { duration: "11 min", oldReward: "$1.50", reward: "$1.87", rating: "2.5/5", votes: 140, bonus: "+25%" },
-  { duration: "37 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 17, bonus: "+25%" },
-  { duration: "22 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 5, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.49", reward: "$0.61", rating: "2.5/5", votes: 28, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.15", reward: "$0.19", rating: "2.5/5", votes: 110, bonus: "+25%" },
-  { duration: "26 min", oldReward: "$0.28", reward: "$0.35", rating: "3/5", votes: 89, bonus: "+25%" },
-  { duration: "5 min", oldReward: "$0.03", reward: "$0.04", rating: "5/5", votes: 110, bonus: "+25%" },
-  { duration: "16 min", oldReward: "$0.49", reward: "$0.61", rating: "2/5", votes: 100, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.14", reward: "$0.17", rating: "4/5", votes: 7, bonus: "+25%" },
-  { duration: "21 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 18, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.18", reward: "$0.23", rating: "3/5", votes: 110, bonus: "+25%" },
+  { duration: "12 min", oldReward: 38, reward: 48, rating: "4/5", votes: 110, bonus: "+25%" },
+  { duration: "11 min", oldReward: 150, reward: 187, rating: "2.5/5", votes: 140, bonus: "+25%" },
+  { duration: "37 min", oldReward: 200, reward: 250, rating: "2.5/5", votes: 17, bonus: "+25%" },
+  { duration: "22 min", oldReward: 38, reward: 48, rating: "4/5", votes: 5, bonus: "+25%" },
+  { duration: "8 min", oldReward: 49, reward: 61, rating: "2.5/5", votes: 28, bonus: "+25%" },
+  { duration: "8 min", oldReward: 15, reward: 19, rating: "2.5/5", votes: 110, bonus: "+25%" },
+  { duration: "26 min", oldReward: 28, reward: 35, rating: "3/5", votes: 89, bonus: "+25%" },
+  { duration: "5 min", oldReward: 3, reward: 4, rating: "5/5", votes: 110, bonus: "+25%" },
+  { duration: "16 min", oldReward: 49, reward: 61, rating: "2/5", votes: 100, bonus: "+25%" },
+  { duration: "12 min", oldReward: 14, reward: 17, rating: "4/5", votes: 7, bonus: "+25%" },
+  { duration: "21 min", oldReward: 200, reward: 250, rating: "2.5/5", votes: 18, bonus: "+25%" },
+  { duration: "12 min", oldReward: 18, reward: 23, rating: "3/5", votes: 110, bonus: "+25%" },
+  { duration: "12 min", oldReward: 38, reward: 48, rating: "4/5", votes: 110, bonus: "+25%" },
+  { duration: "11 min", oldReward: 150, reward: 187, rating: "2.5/5", votes: 140, bonus: "+25%" },
+  { duration: "37 min", oldReward: 200, reward: 250, rating: "2.5/5", votes: 17, bonus: "+25%" },
+  { duration: "22 min", oldReward: 38, reward: 48, rating: "4/5", votes: 5, bonus: "+25%" },
+  { duration: "8 min", oldReward: 49, reward: 61, rating: "2.5/5", votes: 28, bonus: "+25%" },
+  { duration: "8 min", oldReward: 15, reward: 19, rating: "2.5/5", votes: 110, bonus: "+25%" },
+  { duration: "26 min", oldReward: 28, reward: 35, rating: "3/5", votes: 89, bonus: "+25%" },
+  { duration: "5 min", oldReward: 3, reward: 4, rating: "5/5", votes: 110, bonus: "+25%" },
+  { duration: "16 min", oldReward: 49, reward: 61, rating: "2/5", votes: 100, bonus: "+25%" },
+  { duration: "12 min", oldReward: 14, reward: 17, rating: "4/5", votes: 7, bonus: "+25%" },
+  { duration: "21 min", oldReward: 200, reward: 250, rating: "2.5/5", votes: 18, bonus: "+25%" },
+  { duration: "12 min", oldReward: 18, reward: 23, rating: "3/5", votes: 110, bonus: "+25%" },
 ];
 
 const Surveys = () => (
@@ -54,8 +43,8 @@ const Surveys = () => (
             <span>{survey.duration}</span>
           </div>
           <div className="flex flex-col items-start mb-1">
-            <span className="line-through text-xs text-gray-400">{survey.oldReward}</span>
-            <span className="text-2xl font-bold text-green-700">{survey.reward} <span className="text-base font-normal text-gray-500">USD</span></span>
+            <span className="line-through text-xs text-gray-400"><img src="/token.svg" alt="token" className="w-4 h-4 inline-block" />{survey.oldReward}</span>
+            <span className="text-2xl font-bold text-green-700"><img src="/token.svg" alt="token" className="w-4 h-4 inline-block" />{survey.reward} <span className="text-xs text-gray-500 font-semibold">SSC</span></span>
           </div>
           <div className="flex items-center gap-2 text-xs">
             <span className="flex items-center gap-1 text-yellow-500 font-bold">

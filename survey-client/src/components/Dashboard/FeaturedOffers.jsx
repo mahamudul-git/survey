@@ -123,7 +123,7 @@ const FeaturedOffers = () => {
         style={{
           cursor: dragState.current.dragging ? 'grabbing' : 'grab',
           userSelect: 'none',
-          maxWidth: `${cardsPerView * cardWidth}px`,
+          width: '100%',
           margin: '0 auto'
         }}
       >
@@ -178,13 +178,12 @@ const FeaturedOffers = () => {
                   </div>
                   <div className="flex items-center gap-1 mb-0.5">
                     <span className="line-through text-[10px] text-gray-400">
+                      <img src="/token.svg" alt="token" className="w-4 h-4 inline-block" />
                       {offer.oldReward}
                     </span>
                     <span className="text-base font-bold text-[#347433]">
+                      <img src="/token.svg" alt="token" className="w-4 h-4 inline-block" />
                       {offer.reward}
-                    </span>
-                    <span className="text-xs text-gray-500 font-semibold">
-                      {offer.currency}
                     </span>
                   </div>
                   <div className="flex items-center gap-1 text-[10px] text-gray-700 font-medium">

@@ -146,11 +146,18 @@ const Dashboard = () => {
             </button>
             <div>
               <div className="text-white text-sm font-semibold">Balance:</div>
-              <div className="text-white text-3xl font-bold leading-tight mb-0">$ 1.35</div>
-              <div className="text-white text-lg font-bold">USD</div>
+              <div className="text-white text-3xl font-bold leading-tight mb-0">
+                <img src="/tokenwhite.svg" alt="SSC" className="w-7 h-7 mr-1 inline-block" />
+                {135}
+              </div>
+              <div className="text-white text-lg font-bold">SSC</div>
             </div>
-            <div className="flex items-center justify-between w-full mb-2">
-              <span className="text-white text-xs font-semibold">$ 1.35 USD / $ 5 USD</span>
+            <div className="flex items-center mt-3 justify-between w-full mb-2">
+              <span className="text-white text-xs font-semibold">
+                <img src="/tokenwhite.svg" alt="SSC" className="w-4 h-4 mr-1 inline-block" />
+                {135} / 
+                <img src="/tokenwhite.svg" alt="SSC" className="w-4 h-4 mr-1 ml-1 inline-block" /> 500
+              </span>
               <button className="flex items-center gap-1 bg-white rounded-lg px-3 py-1 shadow font-semibold text-[#0a5c4c] text-xs border border-gray-200">
                 <span className="inline-block w-5 h-5 flex items-center justify-center">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="10" rx="3" fill="#fff" stroke="#0a5c4c" strokeWidth="2" /><circle cx="12" cy="12" r="2" fill="#0a5c4c" /></svg>
@@ -173,7 +180,11 @@ const Dashboard = () => {
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="10" rx="3" fill="#fff" stroke="#0a5c4c" strokeWidth="2" /><circle cx="12" cy="12" r="2" fill="#0a5c4c" /></svg>
               </span>
               <div className="flex flex-col flex-1">
-                <span className="text-lg font-bold text-gray-900">$ 1.35 USD</span>
+                <span className="text-lg font-bold text-gray-900">
+                  <img src="/token.svg" alt="SSC" className="w-4 h-4 inline-block" />
+                  {135}
+                  <span className="text-xs text-gray-500 ml-1 font-semibold">SSC</span>
+                </span>
                 <span className="text-xs text-gray-500">Total earnings</span>
               </div>
               <span className="ml-auto text-gray-400">
