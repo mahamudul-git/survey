@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaTrophy, FaGift, FaClipboardList, FaGamepad, FaCalendarAlt, FaLock, FaCog, FaSignOutAlt, FaChevronRight, FaClock, FaRocket } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 import LevelPopup from "./LevelPopup";
 
@@ -15,6 +16,7 @@ const iconMap = {
 const Account = () => {
   const [theme, setTheme] = useState("Light");
   const [showLevelPopup, setShowLevelPopup] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="px-4 py-5 sm:px-3 sm:py-6 md:px-2 md:px-[20px] md:py-8 w-full max-w-full bg-[#f7f7f7] rounded-3xl flex flex-col gap-3 sm:gap-5">
       {/* Header */}
@@ -53,7 +55,7 @@ const Account = () => {
         <div className="w-full h-px bg-[#f4f4f4] my-3 sm:my-6" />
         <div className="flex flex-row flex-wrap items-center justify-between w-full gap-2">
           <div className="flex flex-row gap-2 sm:gap-4">
-            <button className="flex items-center gap-2 border border-[#e5e7eb] rounded-full px-3 sm:px-6 py-2 sm:py-3 font-semibold text-xs sm:text-base text-[#222] bg-white hover:bg-green-50 transition">
+            <button className="flex items-center gap-2 border border-[#e5e7eb] rounded-full px-3 sm:px-6 py-2 sm:py-3 font-semibold text-xs sm:text-base text-[#222] bg-white hover:bg-green-50 transition" onClick={() => navigate('/dashboard/account-settings')}>
               <FaCog className="text-[#222] text-lg" /> Account Settings
             </button>
           </div>
@@ -82,7 +84,7 @@ const Account = () => {
               <span className="text-[#347433] text-xs sm:text-sm">Earned</span>
             </div>
           </div>
-          <div className="bg-white hover:bg-[#eaf7f3] cursor-pointer border border-[#eaf7f3] rounded-full flex items-center px-3 sm:px-6 py-3 sm:py-5">
+          <div className="bg-white hover:bg-[#eaf7f3] cursor-pointer border border-[#eaf7f3] rounded-full flex items-center px-3 sm:px-6 py-3 sm:py-5" onClick={() => navigate('/dashboard/surveys-completed')}>
             <span className="bg-white rounded-full p-2 sm:p-3 mr-2 sm:mr-4 flex items-center justify-center border border-[#eaf7f3]">{iconMap.clipboard}</span>
             <div className="flex flex-col">
               <span className="font-bold text-base sm:text-lg text-[#0a5c4c]">0</span>

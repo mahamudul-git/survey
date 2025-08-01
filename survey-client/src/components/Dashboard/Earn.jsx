@@ -19,12 +19,11 @@ const Earn = () => {
       {/* Tabs Bar */}
       <div className="px-5 py-6 md:px-2 md:px-[20px] md:py-8">
         <div className="mb-2">
-          <h2 className="text-base md:text-xl font-bold mb-3 text-gray-800">Swap Survey</h2>
-          <div className="flex items-center gap-2 border-b border-gray-200">
+            <div className="flex items-center gap-2 border-b border-gray-200">
             {TAB_LIST.map((tab) => (
               <button
                 key={tab.name}
-                className={`relative px-2 py-1 text-sm font-medium transition flex items-center gap-1
+                className={`relative px-2 py-1 text-base font-medium transition flex items-center gap-1
                   ${activeTab === tab.name ? "text-green-900" : "text-gray-600"}
                   ${activeTab === tab.name ? "border-b-2 border-green-700" : ""}
                 `}

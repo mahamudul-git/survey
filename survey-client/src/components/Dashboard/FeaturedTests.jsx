@@ -182,7 +182,7 @@ const FeaturedTests = () => {
                       {test.oldReward}
                     </span>
                     <span className="text-base font-bold text-[#347433]">
-                      <img src="/token.svg" alt="token" className="w-4 h-4 inline-block" />
+                      <img src="/token.svg" alt="token" className="w-4 h-4 mr-1 inline-block" />
                       {test.reward}
                     </span>
                   </div>

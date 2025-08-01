@@ -292,7 +292,7 @@ const Tests = () => {
 								</div>
 								<div className="flex items-center gap-1 mb-0.5">
 									<span className="line-through text-[10px] text-gray-400"><img src="/token.svg" alt="token" className="w-4 h-4 inline-block" />{test.oldReward}</span>
-									<span className="text-base font-bold text-[#347433]"><img src="/token.svg" alt="token" className="w-4 h-4 inline-block" />{test.reward}</span>
+									<span className="text-base font-bold text-[#347433]"><img src="/token.svg" alt="token" className="w-4 h-4 mr-1 inline-block" />{test.reward}</span>
 								</div>
 								<div className="flex items-center gap-1 text-[10px] text-gray-700 font-medium">
 									<svg

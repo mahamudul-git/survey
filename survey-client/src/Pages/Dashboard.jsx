@@ -4,10 +4,17 @@ import Home from "../components/Dashboard/Home";
 import MyInsight from "../components/Dashboard/MyInsight";
 import Earn from "../components/Dashboard/Earn";
 import Account from "../components/Dashboard/Account";
+import AccountSettings from "../components/Dashboard/AccountSettings";
 import logo2 from "../../public/logo2.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import LevelPopup from "../components/Dashboard/LevelPopup";
+import ProfileSetup from "../components/Dashboard/ProfileSetup";
+import ChangeEmail from "../components/Dashboard/ChangeEmail";
+import TwoFactorVerification from "../components/Dashboard/TwoFactorVerification";
+import ChangePassword from "../components/Dashboard/ChangePassword";
+import DeleteAccount from "../components/Dashboard/DeleteAccount";
+import SurveysCompleted from "../components/Dashboard/SurveysCompleted";
 
 const menu = [
   { label: "Home", icon: <FaHome /> },
@@ -25,10 +32,11 @@ const statistics = [
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [showLevelPopup, setShowLevelPopup] = useState(false);
   const [activeTab, setActiveTab] = useState("home");
+  const [showLevelPopup, setShowLevelPopup] = useState(false);
   const [leftOpen, setLeftOpen] = useState(false);
   const [rightOpen, setRightOpen] = useState(false);
+  const [showAccountSettings, setShowAccountSettings] = useState(false);
   const leftSidebarRef = useRef(null);
   const rightSidebarRef = useRef(null);
 
@@ -59,6 +67,15 @@ const Dashboard = () => {
     }
     return () => document.removeEventListener("mousedown", handleClick);
   }, [leftOpen, rightOpen]);
+
+  // Listen for route change to /dashboard/account-settings
+  useEffect(() => {
+    if (window.location.pathname === "/dashboard/account-settings") {
+      setShowAccountSettings(true);
+    } else {
+      setShowAccountSettings(false);
+    }
+  }, [window.location.pathname]);
 
   return (
     <div className="flex min-h-screen bg-gray-50 relative min-w-0">
@@ -97,7 +114,11 @@ const Dashboard = () => {
             <button
               key={item.label}
               className={`flex items-center gap-3 px-4 py-2 rounded-full text-lg font-semibold transition ${activeTab === item.label.toLowerCase() ? "bg-green-50 text-green-700" : "text-gray-600 hover:bg-green-50"}`}
-              onClick={() => { setActiveTab(item.label.toLowerCase()); setLeftOpen(false); }}
+              onClick={() => {
+                setActiveTab(item.label.toLowerCase());
+                setLeftOpen(false);
+                navigate('/dashboard');
+              }}
             >
               {item.icon}
               <span className="tracking-tight">{item.label}</span>
@@ -116,12 +137,23 @@ const Dashboard = () => {
       </aside>
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col items-stretch relative overflow-hidden bg-white mt-[56px] md:mt-0 min-w-0">
-        {/* 56px header height for mobile */}
+{/* 56px header height for mobile */}
         <div className="px-3 py-6 md:px-4 md:py-6">
-          {activeTab === "home" && <Home />}
-          {activeTab === "myinsight" && <MyInsight />}
-          {activeTab === "earn" && <Earn />}
-          {activeTab === "account" && <Account />}
+          {(() => {
+            const path = window.location.pathname;
+            if (path === "/dashboard/account-settings") return <AccountSettings />;
+            if (path === "/dashboard/profile-setup") return <ProfileSetup />;
+            if (path === "/dashboard/change-email") return <ChangeEmail />;
+            if (path === "/dashboard/two-factor") return <TwoFactorVerification />;
+            if (path === "/dashboard/change-password") return <ChangePassword />;
+            if (path === "/dashboard/delete-account") return <DeleteAccount />;
+            if (path === "/dashboard/surveys-completed") return <SurveysCompleted />;
+            if (activeTab === "home") return <Home />;
+            if (activeTab === "myinsight") return <MyInsight />;
+            if (activeTab === "earn") return <Earn />;
+            if (activeTab === "account") return <Account />;
+            return null;
+          })()}
         </div>
       </div>
       {/* Right Sidebar - sticky/offcanvas */}
@@ -144,13 +176,12 @@ const Dashboard = () => {
               <img src="/lavel.svg" alt="Level" className="w-5 h-5" />
               1 Level
             </button>
-            <div>
+            <div className="mb-5">
               <div className="text-white text-sm font-semibold">Balance:</div>
-              <div className="text-white text-3xl font-bold leading-tight mb-0">
-                <img src="/tokenwhite.svg" alt="SSC" className="w-7 h-7 mr-1 inline-block" />
+              <div className="text-white text-4xl mt-3 font-bold leading-tight mb-0">
+                <img src="/tokenwhite.svg" alt="SSC" className="w-10 h-10 mr-1 inline-block" />
                 {135}
               </div>
-              <div className="text-white text-2xl font-bold">SSC</div>
             </div>
             <div className="flex items-center mt-3 justify-between w-full mb-2">
               <span className="text-white text-xs font-semibold">
@@ -158,9 +189,9 @@ const Dashboard = () => {
                 {135} / 
                 <img src="/tokenwhite.svg" alt="SSC" className="w-4 h-4 mr-1 ml-1 inline-block" /> 500
               </span>
-              <button className="flex items-center gap-1 bg-white rounded-lg px-3 py-1 shadow font-semibold text-[#0a5c4c] text-xs border border-gray-200">
+              <button className="flex items-center gap-1 bg-white rounded-full px-3 py-1 shadow font-semibold text-[#0a5c4c] text-[13px]  border border-gray-200">
                 <span className="inline-block w-5 h-5 flex items-center justify-center">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="10" rx="3" fill="#fff" stroke="#0a5c4c" strokeWidth="2" /><circle cx="12" cy="12" r="2" fill="#0a5c4c" /></svg>
+                  <img src="/cashout.svg" alt="Cashout" className="w-5 h-5" />
                 </span>
                 Cashout
               </button>

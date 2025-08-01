@@ -162,7 +162,7 @@ const Surveys = ({ limit }) => (
 									className="w-4 h-4 sm:w-5 sm:h-5 inline-block"
 								/>
 								{survey.rewardValue.amount}
-								<span className="text-xs font-medium text-gray-400 ml-1">
+								<span className="text-xs font-medium text-gray-400 mt-1 ">
 									{survey.rewardValue.currency}
 								</span>
 							</span>
