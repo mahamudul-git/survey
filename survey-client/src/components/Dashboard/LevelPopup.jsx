@@ -3,7 +3,6 @@ import React from "react";
 const LevelPopup = ({ onClose }) => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40" style={{backdropFilter: 'blur(7px) saturate(180%)', WebkitBackdropFilter: 'blur(7px) saturate(180%)'}} onClick={onClose}>
     <div className="bg-white rounded-2xl shadow-lg p-3 w-full max-w-[320px] relative" style={{marginTop:'60px', marginBottom:'60px', background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(16px) saturate(180%)', WebkitBackdropFilter: 'blur(16px) saturate(180%)', border: '1px solid rgba(52,116,51,0.2)'}} onClick={e => e.stopPropagation()}>
-      <button className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-xl font-bold" onClick={onClose}>&times;</button>
       <div className="flex flex-col items-center mb-4">
         <div className="text-base font-semibold text-gray-700 mb-1">You're currently in the Blue Tier 🎉</div>
         <div className="text-xs text-gray-500 mb-3">Keep earning to climb up the ladder!</div>
