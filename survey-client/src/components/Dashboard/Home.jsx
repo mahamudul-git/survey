@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import FeaturedTests from "./FeaturedTests";
 import Surveys from "./Surveys";
 import Tests from "./Tests";
@@ -14,13 +14,62 @@ const Home = () => {
   const [activeTab, setActiveTab] = useState("Featured");
   const handleSeeMoreClick = () => setActiveTab("Survey");
 
+  // Carousel logic for tabs
+  const tabRef = useRef();
+  const dragState = useRef({ dragging: false, startX: 0, lastX: 0, offset: 0, scrollLeft: 0 });
+
+  // Touch/drag support
+  const handleTabTouchStart = (e) => {
+    dragState.current.dragging = true;
+    dragState.current.startX = e.touches[0].clientX;
+    dragState.current.lastX = e.touches[0].clientX;
+    dragState.current.scrollLeft = tabRef.current.scrollLeft;
+  };
+  const handleTabTouchMove = (e) => {
+    if (!dragState.current.dragging) return;
+    const delta = dragState.current.startX - e.touches[0].clientX;
+    tabRef.current.scrollLeft = dragState.current.scrollLeft + delta;
+    dragState.current.lastX = e.touches[0].clientX;
+  };
+  const handleTabTouchEnd = () => {
+    dragState.current.dragging = false;
+  };
+  // Mouse drag support
+  const handleTabMouseDown = (e) => {
+    dragState.current.dragging = true;
+    dragState.current.startX = e.clientX;
+    dragState.current.lastX = e.clientX;
+    dragState.current.scrollLeft = tabRef.current.scrollLeft;
+    window.addEventListener('mousemove', handleTabMouseMove);
+    window.addEventListener('mouseup', handleTabMouseUp);
+  };
+  const handleTabMouseMove = (e) => {
+    if (!dragState.current.dragging) return;
+    const delta = dragState.current.startX - e.clientX;
+    tabRef.current.scrollLeft = dragState.current.scrollLeft + delta;
+    dragState.current.lastX = e.clientX;
+  };
+  const handleTabMouseUp = () => {
+    dragState.current.dragging = false;
+    window.removeEventListener('mousemove', handleTabMouseMove);
+    window.removeEventListener('mouseup', handleTabMouseUp);
+  };
+
   return (
     <main className="flex-1 w-full max-w-full bg-[#f7f7f7] rounded-3xl">
       {/* Tabs Bar */}
       <div className="px-5 py-6 md:px-2 md:px-[20px] md:py-8">
         <div className="mb-2">
           <h2 className="text-base md:text-xl font-bold mb-3 text-gray-800">Swap Survey</h2>
-          <div className="flex items-center gap-2 border-b border-green-100 pb-1">
+          <div
+            ref={tabRef}
+            className="flex items-center gap-2 border-b border-gray-200 overflow-x-auto whitespace-nowrap hide-scrollbar"
+            onTouchStart={handleTabTouchStart}
+            onTouchMove={handleTabTouchMove}
+            onTouchEnd={handleTabTouchEnd}
+            onMouseDown={handleTabMouseDown}
+            style={{ cursor: dragState.current.dragging ? 'grabbing' : 'grab', userSelect: 'none' }}
+          >
             {TAB_LIST.map((tab) => (
               <button
                 key={tab.name}
@@ -33,7 +82,7 @@ const Home = () => {
               >
                 {tab.name}
                 {tab.badge !== undefined && (
-                  <span className="ml-1 px-2 py-0.5 text-xs font-semibold bg-green-100 text-green-900">
+                  <span className="px-2 py-0.5 text-xs font-semibold bg-green-100 text-green-900">
                     {tab.badge}
                   </span>
                 )}

@@ -11,7 +11,7 @@ import LevelPopup from "../components/Dashboard/LevelPopup";
 
 const menu = [
   { label: "Home", icon: <FaHome /> },
-  { label: "MyInsight", icon: <FaClipboardList /> },
+  { label: "My Insight", icon: <FaClipboardList /> },
   { label: "Earn", icon: <FaCoins /> },
   { label: "Account", icon: <FaUserCircle /> },
 ];

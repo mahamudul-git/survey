@@ -20,7 +20,7 @@ const Earn = () => {
       <div className="px-5 py-6 md:px-2 md:px-[20px] md:py-8">
         <div className="mb-2">
           <h2 className="text-base md:text-xl font-bold mb-3 text-gray-800">Swap Survey</h2>
-          <div className="flex items-center gap-2 border-b border-green-100 pb-1">
+          <div className="flex items-center gap-2 border-b border-gray-200">
             {TAB_LIST.map((tab) => (
               <button
                 key={tab.name}
@@ -33,7 +33,7 @@ const Earn = () => {
               >
                 {tab.name}
                 {tab.badge !== undefined && (
-                  <span className="ml-1 px-2 py-0.5 text-xs font-semibold bg-green-100 text-green-900">
+                  <span className="px-2 py-0.5 text-xs font-semibold bg-green-100 text-green-900">
                     {tab.badge}
                   </span>
                 )}
