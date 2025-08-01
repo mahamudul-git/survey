@@ -200,7 +200,7 @@ const TestsHeader = ({ selectedDevice, setSelectedDevice }) => {
 		<div ref={dropdownRef}>
 			{/* Filter Bar */}
 			<div className="flex items-center justify-between gap-4 mb-4">
-				<span className="text-base md:text-xl font-bold text-gray-800">App Testing Tests</span>
+				<span className="text-base md:text-xl font-bold text-gray-800">All Tests</span>
 				<div className="relative">
 					<button
 						onClick={() => setDropdownOpen((v) => !v)}

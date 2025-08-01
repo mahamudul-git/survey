@@ -2,7 +2,7 @@ import { FaGift, FaClipboardList, FaTag, FaUserCircle, FaBars } from "react-icon
 import { FiChevronRight } from "react-icons/fi";
 import Earn from "../components/Dashboard/Earn";
 import Surveys from "../components/Dashboard/Surveys";
-import Offers from "../components/Dashboard/Offers";
+import Tests from "../components/Dashboard/Tests";
 import Account from "../components/Dashboard/Account";
 import logo2 from "../../public/logo2.png";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ import LevelPopup from "../components/Dashboard/LevelPopup";
 const menu = [
   { label: "Earn", icon: <FaGift /> },
   { label: "Surveys", icon: <FaClipboardList /> },
-  { label: "Offers", icon: <FaTag /> },
+  { label: "Tests", icon: <FaTag /> },
   { label: "Account", icon: <FaUserCircle /> },
 ];
 
@@ -20,7 +20,7 @@ const statistics = [
   "Total earnings",
   "Surveys Completed",
   "Rewards Redeemed",
-  "Offers Activities",
+  "Tests Activities",
 ];
 
 const Dashboard = () => {
@@ -120,7 +120,7 @@ const Dashboard = () => {
         <div className="px-3 py-6 md:px-4 md:py-6">
           {activeTab === "earn" && <Earn />}
           {activeTab === "surveys" && <Surveys />}
-          {activeTab === "offers" && <Offers />}
+          {activeTab === "tests" && <Tests />}
           {activeTab === "account" && <Account />}
         </div>
       </div>
@@ -217,13 +217,13 @@ const Dashboard = () => {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#bdbdbd" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </span>
             </div>
-            {/* Offers Activities */}
+            {/* Tests Activities */}
             <div className="flex items-center bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-200">
               <span className="inline-block w-8 h-8 bg-[#eaf7f3] rounded-lg flex items-center justify-center mr-3">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#fff" stroke="#0a5c4c" strokeWidth="2" /><path d="M12 8v4l3 3" stroke="#0a5c4c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </span>
               <div className="flex flex-col flex-1">
-                <span className="text-lg font-bold text-gray-900">Offers activities</span>
+                <span className="text-lg font-bold text-gray-900">Tests activities</span>
               </div>
               <span className="ml-auto text-gray-400">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#bdbdbd" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
