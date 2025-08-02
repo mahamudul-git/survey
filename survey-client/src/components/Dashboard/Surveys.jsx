@@ -1,74 +1,187 @@
 import React from "react";
 
 const surveys = [
-  { duration: "12 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 110, bonus: "+25%" },
-  { duration: "11 min", oldReward: "$1.50", reward: "$1.87", rating: "2.5/5", votes: 140, bonus: "+25%" },
-  { duration: "37 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 17, bonus: "+25%" },
-  { duration: "22 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 5, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.49", reward: "$0.61", rating: "2.5/5", votes: 28, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.15", reward: "$0.19", rating: "2.5/5", votes: 110, bonus: "+25%" },
-  { duration: "26 min", oldReward: "$0.28", reward: "$0.35", rating: "3/5", votes: 89, bonus: "+25%" },
-  { duration: "5 min", oldReward: "$0.03", reward: "$0.04", rating: "5/5", votes: 110, bonus: "+25%" },
-  { duration: "16 min", oldReward: "$0.49", reward: "$0.61", rating: "2/5", votes: 100, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.14", reward: "$0.17", rating: "4/5", votes: 7, bonus: "+25%" },
-  { duration: "21 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 18, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.18", reward: "$0.23", rating: "3/5", votes: 110, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 110, bonus: "+25%" },
-  { duration: "11 min", oldReward: "$1.50", reward: "$1.87", rating: "2.5/5", votes: 140, bonus: "+25%" },
-  { duration: "37 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 17, bonus: "+25%" },
-  { duration: "22 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 5, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.49", reward: "$0.61", rating: "2.5/5", votes: 28, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.15", reward: "$0.19", rating: "2.5/5", votes: 110, bonus: "+25%" },
-  { duration: "26 min", oldReward: "$0.28", reward: "$0.35", rating: "3/5", votes: 89, bonus: "+25%" },
-  { duration: "5 min", oldReward: "$0.03", reward: "$0.04", rating: "5/5", votes: 110, bonus: "+25%" },
-  { duration: "16 min", oldReward: "$0.49", reward: "$0.61", rating: "2/5", votes: 100, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.14", reward: "$0.17", rating: "4/5", votes: 7, bonus: "+25%" },
-  { duration: "21 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 18, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.18", reward: "$0.23", rating: "3/5", votes: 110, bonus: "+25%" },{ duration: "12 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 110, bonus: "+25%" },
-  { duration: "11 min", oldReward: "$1.50", reward: "$1.87", rating: "2.5/5", votes: 140, bonus: "+25%" },
-  { duration: "37 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 17, bonus: "+25%" },
-  { duration: "22 min", oldReward: "$0.38", reward: "$0.48", rating: "4/5", votes: 5, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.49", reward: "$0.61", rating: "2.5/5", votes: 28, bonus: "+25%" },
-  { duration: "8 min", oldReward: "$0.15", reward: "$0.19", rating: "2.5/5", votes: 110, bonus: "+25%" },
-  { duration: "26 min", oldReward: "$0.28", reward: "$0.35", rating: "3/5", votes: 89, bonus: "+25%" },
-  { duration: "5 min", oldReward: "$0.03", reward: "$0.04", rating: "5/5", votes: 110, bonus: "+25%" },
-  { duration: "16 min", oldReward: "$0.49", reward: "$0.61", rating: "2/5", votes: 100, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.14", reward: "$0.17", rating: "4/5", votes: 7, bonus: "+25%" },
-  { duration: "21 min", oldReward: "$2.00", reward: "$2.50", rating: "2.5/5", votes: 18, bonus: "+25%" },
-  { duration: "12 min", oldReward: "$0.18", reward: "$0.23", rating: "3/5", votes: 110, bonus: "+25%" },
+	{
+		lastUpdated: { date: "20 Nov 2025", time: "10:30PM" },
+		surveyCompletion: { totalRequired: 100, completedCount: 60 },
+		rewardValue: { amount: 150, currency: "SSC", bonus: 25 },
+	},
+	{
+		lastUpdated: { date: "19 Nov 2025", time: "09:15PM" },
+		surveyCompletion: { totalRequired: 80, completedCount: 40 },
+		rewardValue: { amount: 120, currency: "SSC", bonus: 20 },
+	},
+	{
+		lastUpdated: { date: "18 Nov 2025", time: "08:00PM" },
+		surveyCompletion: { totalRequired: 150, completedCount: 100 },
+		rewardValue: { amount: 200, currency: "SSC", bonus: 30 },
+	},
+	{
+		lastUpdated: { date: "17 Nov 2025", time: "07:45PM" },
+		surveyCompletion: { totalRequired: 60, completedCount: 30 },
+		rewardValue: { amount: 90, currency: "SSC", bonus: 10 },
+	},
+	{
+		lastUpdated: { date: "16 Nov 2025", time: "06:30PM" },
+		surveyCompletion: { totalRequired: 110, completedCount: 80 },
+		rewardValue: { amount: 170, currency: "SSC", bonus: 15 },
+	},
+	{
+		lastUpdated: { date: "15 Nov 2025", time: "05:20PM" },
+		surveyCompletion: { totalRequired: 90, completedCount: 60 },
+		rewardValue: { amount: 130, currency: "SSC", bonus: 18 },
+	},
+	{
+		lastUpdated: { date: "14 Nov 2025", time: "04:10PM" },
+		surveyCompletion: { totalRequired: 120, completedCount: 100 },
+		rewardValue: { amount: 210, currency: "SSC", bonus: 22 },
+	},
+	{
+		lastUpdated: { date: "13 Nov 2025", time: "03:00PM" },
+		surveyCompletion: { totalRequired: 70, completedCount: 50 },
+		rewardValue: { amount: 80, currency: "SSC", bonus: 12 },
+	},
+	{
+		lastUpdated: { date: "12 Nov 2025", time: "02:30PM" },
+		surveyCompletion: { totalRequired: 130, completedCount: 90 },
+		rewardValue: { amount: 160, currency: "SSC", bonus: 17 },
+	},
+	{
+		lastUpdated: { date: "11 Nov 2025", time: "01:15PM" },
+		surveyCompletion: { totalRequired: 100, completedCount: 70 },
+		rewardValue: { amount: 140, currency: "SSC", bonus: 19 },
+	},
+	{
+		lastUpdated: { date: "10 Nov 2025", time: "12:00PM" },
+		surveyCompletion: { totalRequired: 140, completedCount: 110 },
+		rewardValue: { amount: 220, currency: "SSC", bonus: 28 },
+	},
+	{
+		lastUpdated: { date: "09 Nov 2025", time: "11:45AM" },
+		surveyCompletion: { totalRequired: 80, completedCount: 60 },
+		rewardValue: { amount: 100, currency: "SSC", bonus: 14 },
+	},
+	{
+		lastUpdated: { date: "08 Nov 2025", time: "10:30AM" },
+		surveyCompletion: { totalRequired: 150, completedCount: 120 },
+		rewardValue: { amount: 250, currency: "SSC", bonus: 35 },
+	},
+	{
+		lastUpdated: { date: "07 Nov 2025", time: "09:15AM" },
+		surveyCompletion: { totalRequired: 60, completedCount: 40 },
+		rewardValue: { amount: 70, currency: "SSC", bonus: 8 },
+	},
+	{
+		lastUpdated: { date: "06 Nov 2025", time: "08:00AM" },
+		surveyCompletion: { totalRequired: 110, completedCount: 90 },
+		rewardValue: { amount: 180, currency: "SSC", bonus: 21 },
+	},
+	{
+		lastUpdated: { date: "13 Nov 2025", time: "03:00PM" },
+		surveyCompletion: { totalRequired: 70, completedCount: 50 },
+		rewardValue: { amount: 80, currency: "SSC", bonus: 12 },
+	},
+	{
+		lastUpdated: { date: "12 Nov 2025", time: "02:30PM" },
+		surveyCompletion: { totalRequired: 130, completedCount: 90 },
+		rewardValue: { amount: 160, currency: "SSC", bonus: 17 },
+	},
+	{
+		lastUpdated: { date: "11 Nov 2025", time: "01:15PM" },
+		surveyCompletion: { totalRequired: 100, completedCount: 70 },
+		rewardValue: { amount: 140, currency: "SSC", bonus: 19 },
+	},
+	{
+		lastUpdated: { date: "10 Nov 2025", time: "12:00PM" },
+		surveyCompletion: { totalRequired: 140, completedCount: 110 },
+		rewardValue: { amount: 220, currency: "SSC", bonus: 28 },
+	},
+	{
+		lastUpdated: { date: "09 Nov 2025", time: "11:45AM" },
+		surveyCompletion: { totalRequired: 80, completedCount: 60 },
+		rewardValue: { amount: 100, currency: "SSC", bonus: 14 },
+	},
+	{
+		lastUpdated: { date: "08 Nov 2025", time: "10:30AM" },
+		surveyCompletion: { totalRequired: 150, completedCount: 120 },
+		rewardValue: { amount: 250, currency: "SSC", bonus: 35 },
+	},
+	{
+		lastUpdated: { date: "07 Nov 2025", time: "09:15AM" },
+		surveyCompletion: { totalRequired: 60, completedCount: 40 },
+		rewardValue: { amount: 70, currency: "SSC", bonus: 0 },
+	},
+	{
+		lastUpdated: { date: "06 Nov 2025", time: "08:00AM" },
+		surveyCompletion: { totalRequired: 110, completedCount: 90 },
+		rewardValue: { amount: 180, currency: "SSC", bonus: 21 },
+	},
 ];
 
-const Surveys = () => (
-  <div className="flex-1 px-2 py-4 md:px-6 md:py-8 w-full max-w-full bg-[#f7f7f7] rounded-3xl">
-    <h3 className="text-base md:text-xl font-bold mb-4">All Surveys</h3>
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:gap-4 w-full">
-      {surveys.map((survey, idx) => (
-        <div key={idx} className="bg-white rounded-xl shadow-sm p-2 flex flex-col gap-2 border border-gray-100">
-          <div className="flex items-center gap-1 text-xs text-gray-500 font-semibold mb-1">
-            <span className="inline-block align-middle" style={{display:'flex',alignItems:'center'}}>
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" style={{display:'block'}}>
-                <circle cx="12" cy="12" r="10" stroke="#4CAF50" strokeWidth="2" fill="white" />
-                <path stroke="#4CAF50" strokeWidth="2" strokeLinecap="round" d="M12 7v5l3 3" />
-              </svg>
-            </span>
-            <span>{survey.duration}</span>
-          </div>
-          <div className="flex flex-col items-start mb-1">
-            <span className="line-through text-xs text-gray-400">{survey.oldReward}</span>
-            <span className="text-2xl font-bold text-green-700">{survey.reward} <span className="text-base font-normal text-gray-500">USD</span></span>
-          </div>
-          <div className="flex items-center gap-2 text-xs">
-            <span className="flex items-center gap-1 text-yellow-500 font-bold">
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path fill="#FFC107" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              {survey.rating}
-            </span>
-            <span className="text-gray-400">({survey.votes})</span>
-            <span className="ml-auto px-2 py-0.5 rounded-full bg-green-50 text-green-700 font-bold">{survey.bonus}</span>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
+const Surveys = ({ limit }) => (
+	<div className="flex-1 w-full max-w-full rounded-3xl">
+		<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-3 md:gap-3 w-full">
+			{(limit ? surveys.slice(0, limit) : surveys).map((survey, idx) => {
+				const percent = Math.round(
+					(survey.surveyCompletion.completedCount / survey.surveyCompletion.totalRequired) * 100
+				);
+				return (
+					<div
+						key={idx}
+						className="bg-white rounded-xl shadow-sm p-2 sm:p-3 flex flex-col gap-1 md:gap-3 border border-gray-100 overflow-hidden relative min-h-[90px] w-full min-w-0"
+						style={{ fontFamily: "inherit" }}
+					>
+						{/* Top row: date and time */}
+						<div className="flex items-center justify-between mb-1">
+							<span className="text-[11px] sm:text-xs text-gray-700 font-medium">{survey.lastUpdated.date}</span>
+							<span className="flex items-center gap-1 text-[11px] sm:text-xs text-[#347433] font-semibold">
+								<svg
+									width="13"
+									height="13"
+									fill="none"
+									viewBox="0 0 24 24"
+									className="inline-block align-middle"
+								>
+									<circle cx="12" cy="12" r="10" stroke="#347433" strokeWidth="2" fill="white" />
+									<path
+										stroke="#347433"
+										strokeWidth="2"
+										strokeLinecap="round"
+										d="M12 8v4l3 3"
+									/>
+								</svg>
+								{survey.lastUpdated.time}
+							</span>
+						</div>
+						{/* Reward row */}
+						<div className="flex items-center justify-between mb-1">
+							<span className="flex items-center gap-1 text-base sm:text-lg font-bold text-[#347433]">
+								<img
+									src="/token.svg"
+									alt="token"
+									className="w-4 h-4 sm:w-5 sm:h-5 inline-block"
+								/>
+								{survey.rewardValue.amount}
+								<span className="text-xs font-medium text-gray-400 mt-1 ">
+									{survey.rewardValue.currency}
+								</span>
+							</span>
+							<span className="text-[10px] sm:text-xs font-bold text-[#e6a23c] bg-[#fffbe9] px-2 py-0.5 rounded-md">
+								+{survey.rewardValue.bonus}%
+							</span>
+						</div>
+						{/* Progress bar */}
+						<div className="w-full h-1.5 rounded-full bg-[#eaf0ee] overflow-hidden">
+							<div
+								className="h-full rounded-full bg-[#347433]"
+								style={{ width: `${percent}%` }}
+							></div>
+						</div>
+					</div>
+				);
+			})}
+		</div>
+	</div>
 );
 
 export default Surveys;
