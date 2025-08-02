@@ -1,16 +1,17 @@
 import React from "react";
-import Banner from "../components/Header/Banner";
+
 import Marquee from "react-fast-marquee";
 import SharedHome_1 from "../components/SharedHome/SharedHome_1";
 import SharedHome_2 from "../components/SharedHome/SharedHome_2";
 import SharedHome_3 from "../components/SharedHome/SharedHome_3";
+import Banner from "../components/Header/Banner";
 
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div className="mt-4" >
+      <div className="mt-4 px-6" >
         <Marquee pauseOnHover={false} speed={50} gradient={true} className="">
         {[
           { id: 1, name: "IBM", image_url: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" },
