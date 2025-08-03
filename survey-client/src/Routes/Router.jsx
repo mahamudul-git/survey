@@ -11,6 +11,7 @@ import TwoFactorVerification from "../components/Dashboard/TwoFactorVerification
 import ChangePassword from "../components/Dashboard/ChangePassword";
 import DeleteAccount from "../components/Dashboard/DeleteAccount";
 import SurveysCompleted from "../components/Dashboard/SurveysCompleted";
+import EarnWithUs from "../Pages/EarnWithUs";
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/earn-with-us",
+        element: <EarnWithUs />,
       },
     ],
   },
