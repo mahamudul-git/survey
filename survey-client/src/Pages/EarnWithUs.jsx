@@ -1,5 +1,7 @@
 import React from "react";
 import { FaUserPlus, FaUser, FaFileAlt, FaMoneyBillWave, FaShieldAlt, FaCalendarAlt, FaChartLine, FaClock, FaGlobe } from "react-icons/fa";
+import Button from "../components/UI/Button";
+import { useNavigation } from "../hooks/useNavigation";
 
 const steps = [
 	{
@@ -8,6 +10,8 @@ const steps = [
 		description:
 			"Register with phone, email or NID - completely free and secure",
 		detail: "Phone, Email or NID",
+		color: "from-[#9767E4]/15 to-[#26B2F2]/15",
+		borderColor: "[#9767E4]/20"
 	},
 	{
 		icon: FaUser,
@@ -15,6 +19,8 @@ const steps = [
 		description:
 			"Fill in your age, interests, and profession for better survey matching",
 		detail: "Age, Interests, Profession",
+		color: "from-[#26B2F2]/15 to-[#C084FC]/15",
+		borderColor: "[#26B2F2]/20"
 	},
 	{
 		icon: FaFileAlt,
@@ -22,6 +28,8 @@ const steps = [
 		description:
 			"Get matched with surveys based on your profile and start earning",
 		detail: "Get Matched & Earn",
+		color: "from-[#C084FC]/15 to-[#9767E4]/15",
+		borderColor: "[#C084FC]/20"
 	},
 	{
 		icon: FaMoneyBillWave,
@@ -29,6 +37,8 @@ const steps = [
 		description:
 			"Convert tokens to cash and withdraw via bKash, Nagad, or Bank",
 		detail: "bKash/Nagad/Bank",
+		color: "from-[#9767E4]/15 to-[#C084FC]/15",
+		borderColor: "[#9767E4]/20"
 	},
 ];
 
@@ -38,126 +48,185 @@ const features = [
 		title: "Real Money for Surveys",
 		description:
 			"Convert tokens to BDT instantly - every opinion has real value",
+		color: "from-[#9767E4]/15 to-[#26B2F2]/15",
+		borderColor: "[#9767E4]/20"
 	},
 	{
 		icon: FaShieldAlt,
 		title: "No Investment Needed",
 		description:
 			"Start earning immediately without any upfront payment or fees",
+		color: "from-[#26B2F2]/15 to-[#C084FC]/15",
+		borderColor: "[#26B2F2]/20"
 	},
 	{
 		icon: FaCalendarAlt,
 		title: "Daily Survey Availability",
 		description:
 			"Fresh surveys every day matching your interests and profile",
+		color: "from-[#C084FC]/15 to-[#9767E4]/15",
+		borderColor: "[#C084FC]/20"
 	},
 	{
 		icon: FaChartLine,
 		title: "Level Up = Higher Earnings",
 		description:
 			"Build your reputation and unlock premium high-paying surveys",
+		color: "from-[#9767E4]/15 to-[#C084FC]/15",
+		borderColor: "[#9767E4]/20"
 	},
 	{
 		icon: FaShieldAlt,
 		title: "Safe, Secure & Verified",
 		description:
 			"Your data is protected and payments are guaranteed and secure",
+		color: "from-[#26B2F2]/15 to-[#9767E4]/15",
+		borderColor: "[#26B2F2]/20"
 	},
 	{
 		icon: FaClock,
 		title: "Flexible Work — Anytime, Anywhere",
 		description:
 			"Work from home, office, or on the go - complete freedom",
+		color: "from-[#C084FC]/15 to-[#26B2F2]/15",
+		borderColor: "[#C084FC]/20"
 	},
 ];
 
 export default function EarnWithUs() {
+	const { isMenuOpen } = useNavigation();
+	
 	return (
-		<div className="min-h-screen flex flex-col bg-white">
+		<div className="min-h-screen flex bg-slate-900 flex-col ">
+			<div className={`transition-all duration-300 ${isMenuOpen ? 'blur-sm bg-black/30  brightness-75' : ''}`}>
 			{/* Hero Section */}
-			<section className="relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-success/10 py-20 lg:py-32">
-				<div className="container py-20 mx-auto max-w-[1440px] px-4">
-					<div className="grid lg:grid-cols-2 gap-12 items-center">
-						<div className="text-center lg:text-left">
-							<h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+			<section className="relative overflow-hidden pt-36  pb-12 sm:py-16 lg:py-20 xl:py-40">
+				{/* Background Effects */}
+				<div className="absolute inset-0">
+					<div className="absolute top-16 left-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-[#9767E4]/10 blur-[60px]"></div>
+					<div className="absolute bottom-16 right-1/4 w-56 h-56 sm:w-80 sm:h-80 rounded-full bg-[#26B2F2]/10 blur-[60px]"></div>
+					<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-[#C084FC]/5 blur-[40px]"></div>
+				</div>
+
+				<div className="container mx-auto max-w-[1440px] px-4 sm:px-6 relative">
+					<div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+						<div className="text-left">
+							<div className="initial-hidden animate-fade-in-up inline-flex items-center px-4 py-1.5 rounded-full bg-[#9767E4]/20 text-[#9767E4] text-sm font-medium mb-6">
+								Start Earning Today
+							</div>
+							<h1 className="initial-hidden animate-fade-in-up animation-delay-100 text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 leading-tight text-[#F8FAFC]">
 								Turn Your{" "}
-								<span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-500">
+								<span className="bg-gradient-to-r from-[#9767E4] via-[#C084FC] to-[#26B2F2] bg-clip-text text-transparent">
 									Opinions
 								</span>{" "}
 								Into{" "}
-								<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500">
+								<span className="bg-gradient-to-r from-[#26B2F2] via-[#C084FC] to-[#9767E4] bg-clip-text text-transparent">
 									Earnings
 								</span>
 							</h1>
-							<p className="text-xl lg:text-2xl text-gray-500 mb-8 leading-relaxed">
-								Join E-Survey and get paid to answer surveys that make a real
+							<p className="initial-hidden animate-fade-in-up animation-delay-200 text-lg sm:text-xl lg:text-2xl text-[#F8FAFC]/70 mb-8 leading-relaxed">
+								Join SurveySight and get paid to answer surveys that make a real
 								impact in Bangladesh.
 							</p>
-							<div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-								<button className="inline-flex items-center bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 text-white px-10 py-5 rounded-2xl hover:shadow-2xl hover:shadow-purple-500/40 transition-all duration-300 cursor-pointer whitespace-nowrap hover:scale-105 hover:-translate-y-1 text-lg font-semibold font-poppins shadow-xl">
-									<i className="ri-rocket-line w-6 h-6 flex items-center justify-center mr-3"></i>
+							<div className="initial-hidden animate-fade-in-up animation-delay-300 flex flex-col sm:flex-row gap-4">
+								<Button 
+									size="lg"
+									className="bg-gradient-to-r from-[#9767E4] to-[#26B2F2] hover:from-[#8B5CF6] hover:to-[#0EA5E9] text-white shadow-[0_0_20px_rgba(151,103,228,0.4)] hover:shadow-[0_0_25px_rgba(151,103,228,0.6)]"
+								>
+									<FaUserPlus className="w-5 h-5 mr-3" />
 									Join Early Access Waitlist
-								</button>
-								<button className="inline-flex items-center bg-gradient-to-r from-green-500 via-blue-500 to-teal-600 text-white px-10 py-5 rounded-2xl hover:shadow-2xl hover:shadow-green-500/40 transition-all duration-300 cursor-pointer whitespace-nowrap hover:scale-105 hover:-translate-y-1 text-lg font-semibold font-poppins shadow-xl">
+								</Button>
+								<Button 
+									variant="outline"
+									size="lg"
+									className="border-[#26B2F2]/20 text-[#26B2F2] hover:bg-[#26B2F2]/10 backdrop-blur-lg"
+								>
 									Learn More
-								</button>
+								</Button>
 							</div>
-							<div className="mt-8 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500">
+							<div className="initial-hidden animate-fade-in-up animation-delay-400 mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm text-[#F8FAFC]/60">
 								<div className="flex items-center gap-2">
-									<div className="w-2 h-2 bg-green-500 rounded-full"></div>
+									<div className="w-2 h-2 bg-[#9767E4] rounded-full"></div>
 									<span>No Investment Required</span>
 								</div>
 								<div className="flex items-center gap-2">
-									<div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+									<div className="w-2 h-2 bg-[#26B2F2] rounded-full"></div>
 									<span>Daily Surveys Available</span>
 								</div>
 							</div>
 						</div>
-						<div className="relative">
-							<div className="absolute inset-0 bg-gradient-to-r from-blue-200 to-green-200 rounded-3xl blur-3xl"></div>
-							<img
-								src="/hero-earning.jpg"
-								alt="Person earning money through mobile surveys"
-								className="relative z-10 w-full max-w-lg mx-auto rounded-2xl shadow-2xl"
-							/>
+						<div className="initial-hidden animate-slide-in-right animation-delay-500 relative mt-8 lg:mt-0">
+							<div className="relative max-w-lg mx-auto lg:mx-0">
+								{/* Main Image Container */}
+								<div className="relative rounded-2xl border border-[#9767E4]/20 bg-[#0B111E]/20 overflow-hidden">
+									{/* Gradient Overlay */}
+									<div className="absolute inset-0 bg-gradient-to-br from-[#9767E4]/30 to-[#26B2F2]/30"></div>
+									<img
+										src="/hero-earning.jpg"
+										alt="Person earning money through mobile surveys"
+										className="relative z-10 w-full h-auto rounded-2xl"
+									/>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section className="py-20 bg-gradient-to-b from-background to-muted/30">
-				<div className="container mx-auto max-w-[1440px] px-4">
-					<div className="text-center mb-16">
-						<h2 className="text-3xl lg:text-5xl font-bold mb-6">
+
+			{/* How It Works Section */}
+			<section className="relative py-12 sm:py-16 lg:py-20 bg-transparent w-full overflow-hidden">
+				{/* Background Effects */}
+				<div className="absolute inset-0">
+					<div className="absolute top-16 left-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-[#9767E4]/10 blur-[60px]"></div>
+					<div className="absolute bottom-16 right-1/4 w-56 h-56 sm:w-80 sm:h-80 rounded-full bg-[#26B2F2]/10 blur-[60px]"></div>
+					<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-[#C084FC]/5 blur-[40px]"></div>
+				</div>
+
+				<div className="container mx-auto max-w-[1440px] px-4 sm:px-6 relative">
+					<div className="text-left mb-12 lg:mb-20">
+						<div className="initial-hidden animate-fade-in-up inline-flex items-center px-4 py-1.5 rounded-full bg-[#9767E4]/20 text-[#9767E4] text-sm font-medium mb-6">
+							Simple Process
+						</div>
+						<h2 className="initial-hidden animate-fade-in-up animation-delay-100 text-2xl sm:text-3xl lg:text-5xl font-bold text-[#F8FAFC] mb-6">
 							How It{" "}
-							<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-success">
+							<span className="bg-gradient-to-r from-[#9767E4] via-[#C084FC] to-[#26B2F2] bg-clip-text text-transparent">
 								Works
 							</span>
 						</h2>
-						<p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+						<p className="initial-hidden animate-fade-in-up animation-delay-200 text-lg sm:text-xl text-[#F8FAFC]/70 max-w-2xl">
 							Start earning in just 4 simple steps - no experience required
 						</p>
 					</div>
-					{/* Card grid */}
-					<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+					{/* Steps Grid */}
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
 						{steps.map((step, index) => (
 							<div
 								key={index}
-								className="relative overflow-visible bg-white border border-gray-200 rounded-xl shadow-sm flex flex-col items-center justify-between min-h-[320px] p-8 transition-all duration-300 hover:shadow-lg"
+								className={`initial-hidden animate-fade-in-scale animation-delay-${300 + (index * 100)} group relative rounded-2xl border border-${step.borderColor} bg-[#0B111E]/20 p-6 lg:p-8 hover:bg-[#0E1525]/40 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 flex flex-col items-start text-left min-h-[280px] sm:min-h-[320px] justify-between`}
 							>
-								{/* Icon circle */}
-								<span className="bg-green-600 rounded-full w-14 h-14 flex items-center justify-center mb-6 shadow-lg">
-									<step.icon className="w-7 h-7 text-white" />
-								</span>
-								{/* Title */}
-								<h3 className="text-lg font-bold text-center text-gray-900 mb-2 font-poppins">
-									{step.title}
-								</h3>
-								{/* Description */}
-								<p className="text-center text-gray-600 text-sm mb-6 font-poppins">
-									{step.description}
-								</p>
-								{/* Action */}
-								<span className="mt-auto text-green-700 font-semibold text-center text-sm font-poppins">
+								{/* Gradient Overlay */}
+								<div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${step.color}/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+
+								<div className="relative flex flex-col">
+									{/* Icon */}
+									<div className={`w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center mb-4 sm:mb-6 shadow-lg group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300`}>
+										<step.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+									</div>
+									
+									{/* Title */}
+									<h3 className="text-lg font-bold text-[#F8FAFC] mb-3 sm:mb-4 group-hover:text-white transition-colors duration-300">
+										{step.title}
+									</h3>
+									
+									{/* Description */}
+									<p className="text-[#F8FAFC]/70 text-sm mb-4 sm:mb-6 leading-relaxed">
+										{step.description}
+									</p>
+								</div>
+
+								{/* Detail */}
+								<span className="relative mt-auto text-[#9767E4] font-semibold text-sm">
 									{step.detail}
 								</span>
 							</div>
@@ -165,39 +234,58 @@ export default function EarnWithUs() {
 					</div>
 				</div>
 			</section>
-			<section className="py-20 bg-gradient-to-b from-muted/30 to-background">
-				<div className="container mx-auto max-w-[1440px] px-4">
-					<div className="text-center mb-16">
-						<h2 className="text-3xl lg:text-5xl font-bold mb-6">
+
+			{/* Why Join Section */}
+			<section className="relative py-12 sm:py-16 lg:py-20 bg-transparent w-full overflow-hidden">
+				{/* Background Effects */}
+				<div className="absolute inset-0">
+					<div className="absolute top-16 left-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-[#9767E4]/10 blur-[60px]"></div>
+					<div className="absolute bottom-16 right-1/4 w-56 h-56 sm:w-80 sm:h-80 rounded-full bg-[#26B2F2]/10 blur-[60px]"></div>
+					<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-[#C084FC]/5 blur-[40px]"></div>
+				</div>
+
+				<div className="container mx-auto max-w-[1440px] px-4 sm:px-6 relative">
+					<div className="text-left mb-12 lg:mb-20">
+						<div className="initial-hidden animate-fade-in-up inline-flex items-center px-4 py-1.5 rounded-full bg-[#9767E4]/20 text-[#9767E4] text-sm font-medium mb-6">
+							Premium Benefits
+						</div>
+						<h2 className="initial-hidden animate-fade-in-up animation-delay-100 text-2xl sm:text-3xl lg:text-5xl font-bold text-[#F8FAFC] mb-6">
 							Why Join{" "}
-							<span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-500">
-								E-Survey
+							<span className="bg-gradient-to-r from-[#9767E4] via-[#C084FC] to-[#26B2F2] bg-clip-text text-transparent">
+								SurveySight
 							</span>
 						</h2>
-						<p className="text-xl text-gray-500 max-w-2xl mx-auto">
+						<p className="initial-hidden animate-fade-in-up animation-delay-200 text-lg sm:text-xl text-[#F8FAFC]/70 max-w-2xl">
 							Join thousands of Bangladeshis who are already earning with us
 						</p>
 					</div>
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
 						{features.map((feature, index) => (
 							<div
 								key={index}
-								className="group bg-white border-2 border-gray-100 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:border-green-200 hover:-translate-y-1 p-8 flex flex-col items-center text-center"
+								className={`initial-hidden animate-fade-in-scale animation-delay-${300 + (index * 100)} group relative rounded-2xl border border-${feature.borderColor} bg-[#0B111E]/20 p-6 lg:p-8 hover:bg-[#0E1525]/40 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 flex flex-col items-start text-left`}
 							>
-								<div className="w-14 h-14 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-									<feature.icon className="w-7 h-7 text-white" />
+								{/* Gradient Overlay */}
+								<div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color}/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+
+								<div className="relative">
+									<div className={`w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r ${feature.color} rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 shadow-lg`}>
+										<feature.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+									</div>
+									<h3 className="text-lg sm:text-xl font-bold text-[#F8FAFC] mb-3 sm:mb-4 group-hover:text-white transition-colors duration-300">
+										{feature.title}
+									</h3>
+									<p className="text-[#F8FAFC]/70 leading-relaxed text-sm sm:text-base">
+										{feature.description}
+									</p>
 								</div>
-								<h3 className="text-xl font-bold mb-4 font-poppins text-gray-900">
-									{feature.title}
-								</h3>
-								<p className="text-gray-600 leading-relaxed font-poppins">
-									{feature.description}
-								</p>
 							</div>
 						))}
 					</div>
 				</div>
 			</section>
+			</div>
 		</div>
 	);
 }
