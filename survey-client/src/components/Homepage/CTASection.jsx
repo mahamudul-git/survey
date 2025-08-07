@@ -3,7 +3,7 @@ import Button from "../UI/Button";
 
 export default function CTASection() {
   return (
-    <section className="relative py-10 lg:py-20 bg-transparent w-full overflow-hidden">
+    <section className="relative py-12 sm:py-16 lg:py-20 bg-transparent w-full overflow-hidden">
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-16 left-1/4 w-96 h-96 rounded-full bg-[#9767E4]/15 blur-[80px] animate-pulse"></div>

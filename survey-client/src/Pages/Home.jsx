@@ -8,7 +8,7 @@ import ChallengesSection from "../components/Homepage/ChallengesSection";
 import TestimonialSection from "../components/Homepage/TestimonialSection";
 import CTASection from "../components/Homepage/CTASection";
 import Nav from "../components/Header/Nav";
-import { useNavigation } from "../hooks/useNavigation";
+import { useNavigation } from "../hooks/useNavigation.js";
 
 const Home = () => {
   const { isMenuOpen } = useNavigation();

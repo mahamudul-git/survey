@@ -1,7 +1,7 @@
 import React from "react";
 import { FaUserPlus, FaUser, FaFileAlt, FaMoneyBillWave, FaShieldAlt, FaCalendarAlt, FaChartLine, FaClock, FaGlobe } from "react-icons/fa";
-import Button from "../components/UI/Button";
-import { useNavigation } from "../hooks/useNavigation";
+import Button from "../components/UI/Button";	
+import { useNavigation } from "../hooks/useNavigation.js";
 
 const steps = [
 	{
@@ -183,7 +183,7 @@ export default function EarnWithUs() {
 				</div>
 
 				<div className="container mx-auto max-w-[1440px] px-4 sm:px-6 relative">
-					<div className="text-left mb-12 lg:mb-20">
+					<div className="text-left md:text-center mb-12 lg:mb-20">
 						<div className="initial-hidden animate-fade-in-up inline-flex items-center px-4 py-1.5 rounded-full bg-[#9767E4]/20 text-[#9767E4] text-sm font-medium mb-6">
 							Simple Process
 						</div>
@@ -193,7 +193,7 @@ export default function EarnWithUs() {
 								Works
 							</span>
 						</h2>
-						<p className="initial-hidden animate-fade-in-up animation-delay-200 text-lg sm:text-xl text-[#F8FAFC]/70 max-w-2xl">
+						<p className="initial-hidden animate-fade-in-up animation-delay-200 text-lg sm:text-xl text-[#F8FAFC]/70 max-w-2xl md:mx-auto">
 							Start earning in just 4 simple steps - no experience required
 						</p>
 					</div>
@@ -245,7 +245,7 @@ export default function EarnWithUs() {
 				</div>
 
 				<div className="container mx-auto max-w-[1440px] px-4 sm:px-6 relative">
-					<div className="text-left mb-12 lg:mb-20">
+					<div className="text-left md:text-center mb-12 lg:mb-20">
 						<div className="initial-hidden animate-fade-in-up inline-flex items-center px-4 py-1.5 rounded-full bg-[#9767E4]/20 text-[#9767E4] text-sm font-medium mb-6">
 							Premium Benefits
 						</div>
@@ -255,7 +255,7 @@ export default function EarnWithUs() {
 								SurveySight
 							</span>
 						</h2>
-						<p className="initial-hidden animate-fade-in-up animation-delay-200 text-lg sm:text-xl text-[#F8FAFC]/70 max-w-2xl">
+						<p className="initial-hidden animate-fade-in-up animation-delay-200 text-lg sm:text-xl text-[#F8FAFC]/70 max-w-2xl md:mx-auto">
 							Join thousands of Bangladeshis who are already earning with us
 						</p>
 					</div>

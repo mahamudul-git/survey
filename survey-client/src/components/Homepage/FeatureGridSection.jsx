@@ -6,34 +6,34 @@ const features = [
 		icon: <FaShieldAlt className="text-white text-2xl w-7 h-7" />,
 		title: "Verified Users",
 		description: "Every participant goes through our comprehensive KYC process",
-		color: "from-[#9767E4] to-[#26B2F2]",
+		color: "from-[#9767E4]/15 to-[#26B2F2]/15",
 		borderColor: "[#9767E4]/20",
 	},
 	{
 		icon: <FaBullseye className="text-white text-2xl w-7 h-7" />,
 		title: "Deep Targeting",
 		description: "Reach your exact audience with precision targeting tools",
-		color: "from-[#26B2F2] to-[#C084FC]",
+		color: "from-[#26B2F2]/15 to-[#C084FC]/15",
 		borderColor: "[#26B2F2]/20",
 	},
 	{
 		icon: <FaChartBar className="text-white text-2xl w-7 h-7" />,
 		title: "Instant Analytics",
 		description: "Real-time insights and data visualization dashboard",
-		color: "from-[#C084FC] to-[#9767E4]",
+		color: "from-[#C084FC]/15 to-[#9767E4]/15",
 		borderColor: "[#C084FC]/20",
 	},
 	{
 		icon: <FaGamepad className="text-white text-2xl w-7 h-7" />,
 		title: "Gamified System",
 		description: "Engaging survey experience with rewards and achievements",
-		color: "from-[#9767E4] to-[#C084FC]",
+		color: "from-[#9767E4]/15 to-[#C084FC]/15",
 		borderColor: "[#9767E4]/20",
 	},
 ];
 
 const FeatureGridSection = () => (
-	<section className="relative py-20 bg-transparent w-full overflow-hidden">
+	<section className="relative py-12 sm:py-16 lg:py-20 bg-transparent w-full overflow-hidden">
 		{/* Background Effects */}
 		<div className="absolute inset-0">
 			<div className="absolute top-16 left-1/4 w-96 h-96 rounded-full bg-[#9767E4]/10 blur-[60px]"></div>

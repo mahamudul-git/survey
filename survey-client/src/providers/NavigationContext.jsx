@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { NavigationContext } from "../contexts/NavigationContext";
+import { NavigationContext } from "../hooks/useNavigation.js";
 
+// Provider component
 const NavigationProvider = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

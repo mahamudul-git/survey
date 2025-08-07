@@ -1,7 +1,7 @@
 import { useContext, useMemo, useCallback, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import { useNavigation } from "../../hooks/useNavigation";
+import { useNavigation } from "../../hooks/useNavigation.js";
 import { toast } from "react-toastify";
 import { RiMenuUnfoldLine, RiCloseLine } from "react-icons/ri";
 

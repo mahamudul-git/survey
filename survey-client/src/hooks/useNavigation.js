@@ -1,5 +1,6 @@
-import { useContext } from "react";
-import { NavigationContext } from "../contexts/NavigationContext";
+import { createContext, useContext } from "react";
+
+const NavigationContext = createContext();
 
 export const useNavigation = () => {
   const context = useContext(NavigationContext);
@@ -8,3 +9,5 @@ export const useNavigation = () => {
   }
   return context;
 };
+
+export { NavigationContext };

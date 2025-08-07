@@ -2,7 +2,7 @@ import { FaMoneyBillWave, FaUserPlus, FaShieldAlt, FaSatelliteDish, FaCoins, FaC
 import Button from "../UI/Button";
 
 const JourneySection = () => (
-  <section className="relative py-20 bg-transparent w-full overflow-hidden">
+  <section className="relative py-12 sm:py-16 lg:py-20 bg-transparent w-full overflow-hidden">
     {/* Background Effects */}
     <div className="absolute inset-0">
       <div className="absolute top-16 left-1/4 w-96 h-96 rounded-full bg-[#9767E4]/10 blur-[60px]"></div>
@@ -26,10 +26,10 @@ const JourneySection = () => (
           Whether you're looking to earn or gather insights, we've streamlined the journey for maximum efficiency
         </p>
       </div>
-      
-      <div className="flex lg:grid-cols-2 items-center justify-center gap-8 center">
+
+      <div className="flex flex-wrap lg:grid-cols-2 items-center justify-center gap-8 center">
         {/* Earn with Us */}
-        <div className="initial-hidden animate-fade-in-up animation-delay-300 relative">
+        <div className="initial-hidden w-full md:w-[35%]  animate-fade-in-up animation-delay-400 relative">
           <div className="relative">
             {/* Main Dashboard Container */}
             <div className="relative w-full rounded-2xl border border-[#9767E4]/20 bg-[#0B111E]/20">
@@ -119,8 +119,8 @@ const JourneySection = () => (
           </div>
         </div>
         {/* Publish with Us */}
-        <div className="initial-hidden animate-fade-in-up animation-delay-400 relative">
-          <div className="relative max-w-[450px]">
+        <div className="initial-hidden w-full md:w-[35%] animate-fade-in-up animation-delay-400 relative">
+          <div className="relative">
             {/* Main Dashboard Container */}
             <div className="relative w-full rounded-2xl border border-[#C084FC]/20 bg-[#0B111E]/20">
               {/* Gradient Overlay */}

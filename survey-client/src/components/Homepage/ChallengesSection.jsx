@@ -53,7 +53,7 @@ const challenges = [
 
 export default function ChallengesSection() {
     return (
-        <section className="relative py-20 bg-transparent w-full overflow-hidden">
+        <section className="relative py-12 sm:py-16 lg:py-20 bg-transparent w-full overflow-hidden">
             {/* Background Effects */}
             <div className="absolute inset-0">
                 <div className="absolute top-16 left-1/4 w-96 h-96 rounded-full bg-[#9767E4]/10 blur-[60px]"></div>
