@@ -119,8 +119,8 @@ const surveys = [
 ];
 
 const Surveys = ({ limit }) => (
-	<div className="flex-1 w-full max-w-full rounded-3xl">
-		<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-3 md:gap-3 w-full">
+	<div className="flex-1 w-full max-w-full">
+		<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-4 w-full">
 			{(limit ? surveys.slice(0, limit) : surveys).map((survey, idx) => {
 				const percent = Math.round(
 					(survey.surveyCompletion.completedCount / survey.surveyCompletion.totalRequired) * 100
@@ -128,13 +128,13 @@ const Surveys = ({ limit }) => (
 				return (
 					<div
 						key={idx}
-						className="bg-white rounded-xl shadow-sm p-2 sm:p-3 flex flex-col gap-1 md:gap-3 border border-gray-100 overflow-hidden relative min-h-[90px] w-full min-w-0"
+						className="bg-[#0E1525]/50 border border-[#9767E4]/10 rounded-xl backdrop-blur-sm p-3 sm:p-4 flex flex-col gap-2 md:gap-3 overflow-hidden relative min-h-[100px] w-full min-w-0 hover:bg-[#0E1525]/70 hover:border-[#9767E4]/20 transition-all duration-300 group cursor-pointer"
 						style={{ fontFamily: "inherit" }}
 					>
 						{/* Top row: date and time */}
 						<div className="flex items-center justify-between mb-1">
-							<span className="text-[11px] sm:text-xs text-gray-700 font-medium">{survey.lastUpdated.date}</span>
-							<span className="flex items-center gap-1 text-[11px] sm:text-xs text-[#347433] font-semibold">
+							<span className="text-xs text-[#F8FAFC]/70 font-medium">{survey.lastUpdated.date}</span>
+							<span className="flex items-center gap-1 text-xs text-[#26B2F2] font-semibold">
 								<svg
 									width="13"
 									height="13"
@@ -142,9 +142,9 @@ const Surveys = ({ limit }) => (
 									viewBox="0 0 24 24"
 									className="inline-block align-middle"
 								>
-									<circle cx="12" cy="12" r="10" stroke="#347433" strokeWidth="2" fill="white" />
+									<circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
 									<path
-										stroke="#347433"
+										stroke="currentColor"
 										strokeWidth="2"
 										strokeLinecap="round"
 										d="M12 8v4l3 3"
@@ -154,28 +154,34 @@ const Surveys = ({ limit }) => (
 							</span>
 						</div>
 						{/* Reward row */}
-						<div className="flex items-center justify-between mb-1">
-							<span className="flex items-center gap-1 text-base sm:text-lg font-bold text-[#347433]">
+						<div className="flex items-center justify-between mb-2">
+							<span className="flex items-center gap-1 text-base sm:text-lg font-bold text-[#F8FAFC]">
 								<img
 									src="/token.svg"
 									alt="token"
 									className="w-4 h-4 sm:w-5 sm:h-5 inline-block"
 								/>
 								{survey.rewardValue.amount}
-								<span className="text-xs font-medium text-gray-400 mt-1 ">
+								<span className="text-xs font-medium text-[#F8FAFC]/60 mt-1">
 									{survey.rewardValue.currency}
 								</span>
 							</span>
-							<span className="text-[10px] sm:text-xs font-bold text-[#e6a23c] bg-[#fffbe9] px-2 py-0.5 rounded-md">
-								+{survey.rewardValue.bonus}%
-							</span>
+							{survey.rewardValue.bonus > 0 && (
+								<span className="text-xs font-bold text-white bg-gradient-to-r from-[#9767E4] to-[#C084FC] px-2 py-1 rounded-md shadow-lg shadow-[#9767E4]/20">
+									+{survey.rewardValue.bonus}%
+								</span>
+							)}
 						</div>
 						{/* Progress bar */}
-						<div className="w-full h-1.5 rounded-full bg-[#eaf0ee] overflow-hidden">
+						<div className="w-full h-2 rounded-full bg-[#0B111E]/40 overflow-hidden">
 							<div
-								className="h-full rounded-full bg-[#347433]"
+								className="h-full rounded-full bg-gradient-to-r from-[#26B2F2] to-[#9767E4] transition-all duration-500"
 								style={{ width: `${percent}%` }}
 							></div>
+						</div>
+						{/* Progress text */}
+						<div className="text-xs text-[#F8FAFC]/60 font-medium">
+							{survey.surveyCompletion.completedCount}/{survey.surveyCompletion.totalRequired} completed ({percent}%)
 						</div>
 					</div>
 				);

@@ -92,12 +92,12 @@ const FeaturedTests = () => {
   }, [carouselIdx]);
 
   return (
-    <div className="w-full max-w-full rounded-3xl">
-      <div className="flex items-center justify-between gap-4 mb-4">
-        <span className="text-lg font-semibold text-gray-900 ">Featured Testing</span>
+    <div className="w-full max-w-full">
+      <div className="flex items-center justify-between gap-4 mb-6">
+        <span className="text-lg font-bold text-[#F8FAFC]">Featured Testing</span>
         <div className="flex gap-2">
           <button
-            className="rounded-full bg-[#e0ece7] w-8 h-8 flex items-center justify-center text-gray-500 border border-transparent hover:border-green-400 transition disabled:opacity-40"
+            className="rounded-full bg-gradient-to-r from-[#9767E4]/10 to-[#26B2F2]/10 border border-[#9767E4]/20 w-10 h-10 flex items-center justify-center text-[#9767E4] hover:from-[#9767E4]/20 hover:to-[#26B2F2]/20 hover:border-[#9767E4]/30 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
             onClick={() => setCarouselIdx(Math.max(0, carouselIdx - 1))}
             disabled={carouselIdx === 0}
             aria-label="Previous"
@@ -105,7 +105,7 @@ const FeaturedTests = () => {
             <FaChevronLeft />
           </button>
           <button
-            className="rounded-full bg-[#e0ece7] w-8 h-8 flex items-center justify-center text-gray-500 border border-transparent hover:border-green-400 transition disabled:opacity-40"
+            className="rounded-full bg-gradient-to-r from-[#9767E4]/10 to-[#26B2F2]/10 border border-[#9767E4]/20 w-10 h-10 flex items-center justify-center text-[#9767E4] hover:from-[#9767E4]/20 hover:to-[#26B2F2]/20 hover:border-[#9767E4]/30 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
             onClick={() => setCarouselIdx(Math.min(maxIdx, carouselIdx + 1))}
             disabled={carouselIdx >= maxIdx}
             aria-label="Next"
@@ -135,58 +135,58 @@ const FeaturedTests = () => {
           {allTests.map((test, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col px-2 py-2 relative overflow-hidden min-h-[80px]"
+              className="bg-[#0E1525]/50 border border-[#9767E4]/10 rounded-xl backdrop-blur-sm flex flex-col px-3 py-3 relative overflow-hidden min-h-[90px] hover:bg-[#0E1525]/70 hover:border-[#9767E4]/20 transition-all duration-300"
               style={{ width: `${cardWidth}px`, flex: '0 0 auto' }}
             >
-              <div className="flex w-full gap-2">
+              <div className="flex w-full gap-3">
                 {/* Image + icon */}
-                <div className="relative w-[48px] h-[65px] min-w-[55px] flex items-center justify-center mr-2">
+                <div className="relative w-[48px] h-[65px] min-w-[55px] flex items-center justify-center">
                   <img
                     src={test.image}
                     alt={test.title}
-                    className="w-[55px] h-[65px] rounded-lg object-cover"
+                    className="w-[55px] h-[65px] rounded-lg object-cover shadow-md"
                   />
                   {test.device === "Windows" && (
                     <img
                       src="/windows.svg"
                       alt="Windows"
-                      style={{ background: 'rgba(0, 0, 0, 0.35)', backdropFilter: 'blur(2px) saturate(180%)', WebkitBackdropFilter: 'blur(2px) saturate(180%)'}}
-                      className="absolute top-1 left-1 w-4 h-4 p-[3px] rounded-full "
+                      style={{ background: 'rgba(0, 0, 0, 0.6)', backdropFilter: 'blur(4px) saturate(180%)', WebkitBackdropFilter: 'blur(4px) saturate(180%)'}}
+                      className="absolute top-1 left-1 w-4 h-4 p-[3px] rounded-full border border-white/20"
                     />
                   )}
                   {test.device === "Apple" && (
                     <img
                       src="/apple.svg"
                       alt="Apple"
-                      style={{ background: 'rgba(0, 0, 0, 0.35)', backdropFilter: 'blur(2px) saturate(180%)', WebkitBackdropFilter: 'blur(2px) saturate(180%)'}}
-                      className="absolute top-1 left-1 w-4 h-4 p-[3px] rounded-full "
+                      style={{ background: 'rgba(0, 0, 0, 0.6)', backdropFilter: 'blur(4px) saturate(180%)', WebkitBackdropFilter: 'blur(4px) saturate(180%)'}}
+                      className="absolute top-1 left-1 w-4 h-4 p-[3px] rounded-full border border-white/20"
                     />
                   )}
                   {test.device === "Android" && (
                     <img
                       src="/android.png"
                       alt="Android"
-                      style={{ background: 'rgba(0, 0, 0, 0.35)', backdropFilter: 'blur(2px) saturate(180%)', WebkitBackdropFilter: 'blur(2px) saturate(180%)'}}
-                      className="absolute top-1 left-1 w-4 h-4 p-[3px] rounded-full "
+                      style={{ background: 'rgba(0, 0, 0, 0.6)', backdropFilter: 'blur(4px) saturate(180%)', WebkitBackdropFilter: 'blur(4px) saturate(180%)'}}
+                      className="absolute top-1 left-1 w-4 h-4 p-[3px] rounded-full border border-white/20"
                     />
                   )}
                 </div>
                 {/* Info */}
                 <div className="flex-1 flex flex-col justify-center">
-                  <div className="font-semibold text-xs text-gray-900 mb-0.5 truncate">
+                  <div className="font-semibold text-sm text-[#F8FAFC] mb-1 truncate">
                     {test.title.length > 20 ? test.title.slice(0, 20) + '...' : test.title}
                   </div>
-                  <div className="flex items-center gap-1 mb-0.5">
-                    <span className="line-through text-[10px] text-gray-400">
-                      <img src="/token.svg" alt="token" className="w-4 h-4 inline-block" />
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="line-through text-xs text-[#F8FAFC]/40 flex items-center">
+                      <img src="/token.svg" alt="token" className="w-3 h-3 mr-1" />
                       {test.oldReward}
                     </span>
-                    <span className="text-base font-bold text-[#347433]">
-                      <img src="/token.svg" alt="token" className="w-4 h-4 mr-1 inline-block" />
+                    <span className="text-base font-bold text-[#26B2F2] flex items-center">
+                      <img src="/token.svg" alt="token" className="w-4 h-4 mr-1" />
                       {test.reward}
                     </span>
                   </div>
-                  <div className="flex items-center gap-1 text-[10px] text-gray-700 font-medium">
+                  <div className="flex items-center gap-1 text-xs text-[#F8FAFC]/60 font-medium">
                     <svg
                       width="14"
                       height="14"
@@ -194,7 +194,7 @@ const FeaturedTests = () => {
                       viewBox="0 0 24 24"
                     >
                       <path
-                        fill="#222"
+                        fill="currentColor"
                         d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4z"
                       />
                     </svg>
@@ -202,7 +202,7 @@ const FeaturedTests = () => {
                   </div>
                 </div>
               </div>
-              {/* +25% badge - diagonal gradient stripe */}
+              {/* Enhanced +25% badge */}
               <div className="absolute bottom-0 right-0 w-full h-full pointer-events-none select-none" style={{zIndex:2}}>
                 <div
                   style={{
@@ -211,18 +211,19 @@ const FeaturedTests = () => {
                     right: 0,
                     width: '70px',
                     height: '18px',
-                    background: 'linear-gradient(105deg, #fffbe9 60%, #ffe9c7 100%)',
-                    borderBottomRightRadius: '0.5rem',
-                    borderTopLeftRadius: '0.5rem',
+                    background: 'linear-gradient(105deg, rgba(151, 103, 228, 0.9) 60%, rgba(192, 132, 252, 0.9) 100%)',
+                    borderBottomRightRadius: '0.75rem',
+                    borderTopLeftRadius: '0.75rem',
                     transform: 'rotate(-25deg) translate(10px, 5px)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                    boxShadow: '0 4px 12px rgba(151, 103, 228, 0.3)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
                   }}
                 >
                   <span style={{
-                    color: '#e6a23c',
+                    color: '#ffffff',
                     fontWeight: 700,
                     fontSize: '0.65rem',
                     letterSpacing: '1px',
