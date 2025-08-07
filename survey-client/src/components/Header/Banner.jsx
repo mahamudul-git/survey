@@ -8,7 +8,7 @@ const HeroSection = () => {
   const responsesCount = useCountUp(284, 1200, 800);
 
   return (
-    <section className="relative bg-transparent pt-[170px] pb-[90px] overflow-hidden">
+    <section className="relative bg-transparent pt-36 md:pt-[170px] pb-[90px] overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0">
           <div className="absolute top-[215px] left-[374px] w-64 h-64 rounded-full bg-[#9767E4]/20 blur-[32px]"></div>
@@ -17,7 +17,7 @@ const HeroSection = () => {
         </div>
 
         <div className="container mx-auto max-w-[1440px] px-6 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-3 items-center">
             {/* Left Content */}
             <div className="space-y-6">
               <div className="initial-hidden animate-fade-in-up inline-flex items-center px-4 py-1.5 rounded-full bg-[#9767E4]/20 text-[#9767E4] text-sm font-medium">
@@ -48,7 +48,7 @@ const HeroSection = () => {
 
             {/* Right Content - Dashboard Preview */}
             <div className="relative">
-              <div className="initial-hidden animate-slide-in-right animation-delay-400 relative max-w-[500px] mx-auto">
+              <div className="initial-hidden mt-6 md:mt-0 animate-slide-in-right animation-delay-400 relative max-w-[500px] mx-auto">
                 {/* Main Dashboard Container */}
                 <div className="relative w-full rounded-2xl border border-[#9767E4]/20 bg-[#0B111E]/20">
                   {/* Gradient Overlay */}

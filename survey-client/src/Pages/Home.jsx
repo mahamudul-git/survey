@@ -19,7 +19,7 @@ const Home = () => {
       <div className={`transition-all duration-300 ${isMenuOpen ? 'blur-sm bg-black/30  brightness-75' : ''}`}>
         <Banner />
         {/* Trusted Partners Section */}
-        <section className="relative bg-slate-900/0 py-10 overflow-hidden">
+        <section className="relative bg-slate-900/0 pb-6 pt-0 md:py10 overflow-hidden">
         <div className="container mx-auto  max-w-[1440px] relative">
           <div className="initial-hidden animate-fade-in-up animation-delay-300 relative">
             {/* Glassmorphism Container */}

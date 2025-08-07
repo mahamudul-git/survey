@@ -64,7 +64,7 @@ export default function CTASection() {
           </div>
           
           {/* Enhanced stats section */}
-          <div className="initial-hidden animate-fade-in-up animation-delay-400 flex flex-col sm:flex-row items-center justify-center gap-8 mb-8">
+          <div className="hidden md:inline-block initial-hidden animate-fade-in-up animation-delay-400 flex flex-col sm:flex-row items-center justify-center gap-8 mb-8">
             <div className="flex items-center gap-2 text-[#F8FAFC]/70">
               <FaUsers className="w-5 h-5 text-[#26B2F2]" />
               <span className="text-lg font-medium">1,000+ Active Users</span>
