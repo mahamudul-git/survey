@@ -128,20 +128,13 @@ export default function EarnWithUs() {
 								Join SurveySight and get paid to answer surveys that make a real
 								impact in Bangladesh.
 							</p>
-							<div className="initial-hidden animate-fade-in-up animation-delay-300 flex flex-col sm:flex-row gap-4">
-								<Button 
-									size="lg"
-									className="bg-gradient-to-r from-[#9767E4] to-[#26B2F2] hover:from-[#8B5CF6] hover:to-[#0EA5E9] text-white shadow-[0_0_20px_rgba(151,103,228,0.4)] hover:shadow-[0_0_25px_rgba(151,103,228,0.6)]"
-								>
-									<FaUserPlus className="w-5 h-5 mr-3" />
+							<div className="initial-hidden animate-fade-in-up animation-delay-300 flex flex-wrap gap-3">
+								<Button>
 									Join Early Access Waitlist
 								</Button>
-								<Button 
-									variant="outline"
-									size="lg"
-									className="border-[#26B2F2]/20 text-[#26B2F2] hover:bg-[#26B2F2]/10 backdrop-blur-lg"
-								>
+								<Button variant="outline" className="border-[#9767E4]/20 text-[#9767E4] hover:bg-[#9767E4]/10">
 									Learn More
+									<FaUserPlus className="ml-2 w-4 h-4" />
 								</Button>
 							</div>
 							<div className="initial-hidden animate-fade-in-up animation-delay-400 mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm text-[#F8FAFC]/60">

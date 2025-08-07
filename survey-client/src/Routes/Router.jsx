@@ -12,6 +12,8 @@ import ChangePassword from "../components/Dashboard/ChangePassword";
 import DeleteAccount from "../components/Dashboard/DeleteAccount";
 import SurveysCompleted from "../components/Dashboard/SurveysCompleted";
 import EarnWithUs from "../Pages/EarnWithUs";
+import PublishSurvey from "../Pages/PublishSurvey";
+import Resources from "../Pages/Resources";
 import HelpSupport from "../Pages/HelpSupport";
 import NotFound from "../Pages/NotFound";
 
@@ -69,6 +71,14 @@ export const router = createBrowserRouter([
       {
         path: "/earn-with-us",
         element: <EarnWithUs />,
+      },
+      {
+        path: "/publish-survey",
+        element: <PublishSurvey />,
+      },
+      {
+        path: "/resources",
+        element: <Resources />,
       },
       {
         path: "/help-support",
