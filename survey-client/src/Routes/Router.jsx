@@ -12,6 +12,7 @@ import ChangePassword from "../components/Dashboard/ChangePassword";
 import DeleteAccount from "../components/Dashboard/DeleteAccount";
 import SurveysCompleted from "../components/Dashboard/SurveysCompleted";
 import EarnWithUs from "../Pages/EarnWithUs";
+import HelpSupport from "../Pages/HelpSupport";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
       {
         path: "/earn-with-us",
         element: <EarnWithUs />,
+      },
+      {
+        path: "/help-support",
+        element: <HelpSupport />,
       },
     ],
   },
