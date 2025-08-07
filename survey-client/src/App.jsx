@@ -2,11 +2,13 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Header/Nav";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 import { Bounce, ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <div>
+      <ScrollToTop />
       <Nav></Nav>
 
       <div>

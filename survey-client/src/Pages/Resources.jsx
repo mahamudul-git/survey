@@ -271,51 +271,53 @@ export default function Resources() {
   return (
     <div className="min-h-screen bg-[#0B111E] text-white">
      
-      <section className="relative pt-36  pb-12 sm:py-16 lg:py-20 xl:pb-32 xl:pt-40 overflow-hidden">
+      <section className="relative pt-36 pb-12 sm:py-16 lg:py-20 xl:pb-32 xl:pt-40 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-[215px] left-[374px] w-64 h-64 rounded-full bg-[#9767E4]/20 blur-[32px]"></div>
-          <div className="absolute top-[246px] right-[200px] w-96 h-96 rounded-full bg-[#26B2F2]/20 blur-[32px]"></div>
-          <div className="absolute bottom-[100px] left-[600px] w-48 h-48 rounded-full bg-[#9767E4]/20 blur-[32px]"></div>
+          <div className="absolute top-[115px] sm:top-[215px] left-[174px] sm:left-[374px] w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-[#9767E4]/20 blur-[32px]"></div>
+          <div className="absolute top-[146px] sm:top-[246px] right-[100px] sm:right-[200px] w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-[#26B2F2]/20 blur-[32px]"></div>
+          <div className="absolute bottom-[50px] sm:bottom-[100px] left-[300px] sm:left-[600px] w-32 h-32 sm:w-48 sm:h-48 rounded-full bg-[#9767E4]/20 blur-[32px]"></div>
         </div>
 
-        <div className="container mx-auto max-w-[1440px] px-6 text-center">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#9767E4]/20 text-[#9767E4] text-sm font-medium mb-6">
+        <div className="container mx-auto max-w-[1440px] px-4 sm:px-6 text-center">
+          <div className="initial-hidden animate-fade-in-up inline-flex items-center px-4 py-1.5 rounded-full bg-[#9767E4]/20 text-[#9767E4] text-sm font-medium mb-6">
             Knowledge Hub
           </div>
           
-          <h1 className="text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-[#9767E4] via-[#C084FC] to-[#26B2F2] bg-clip-text text-transparent mb-6">
+          <h1 className="initial-hidden animate-fade-in-up animation-delay-100 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-[#9767E4] via-[#C084FC] to-[#26B2F2] bg-clip-text text-transparent mb-6">
             Resources & Learning
           </h1>
           
-          <p className="text-xl text-[#F8FAFC]/80 max-w-4xl mx-auto leading-relaxed mb-12">
+          <p className="initial-hidden animate-fade-in-up animation-delay-200 text-lg sm:text-xl lg:text-xl text-[#F8FAFC]/80 max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12">
             Everything you need to master survey creation, data analysis, and research methodologies. 
             Explore guides, tutorials, templates, and expert insights.
           </p>
 
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto mb-8">
-            <div className="relative ">
-              <Search className="absolute z-50 left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#B3BDCC]" />
+          <div className="initial-hidden animate-fade-in-up animation-delay-300 max-w-2xl mx-auto mb-6 sm:mb-8">
+            <div className="relative">
+              <Search className="absolute z-50 left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-[#B3BDCC]" />
               <input
                 type="text"
                 placeholder="Search resources, guides, tutorials..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                className="w-full h-14 pl-12 pr-4 bg-[#0E1525]/40 border border-[#9767E4]/20 rounded-full text-[#F8FAFC] placeholder:text-[#B3BDCC] backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#9767E4]/50 focus:border-[#9767E4]"
+                className="w-full h-12 sm:h-14 pl-10 sm:pl-12 pr-4 bg-[#0E1525]/40 border border-[#9767E4]/20 rounded-full text-[#F8FAFC] placeholder:text-[#B3BDCC] backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#9767E4]/50 focus:border-[#9767E4] text-sm sm:text-base"
               />
               <Button 
                 onClick={handleSearch}
-                className="absolute right-2 top-2 bg-[#9767E4] hover:bg-[#8B5CF6] shadow-none h-10 rounded-full"
+                size="sm"
+                className="absolute right-1 sm:right-2 top-1 sm:top-2 bg-[#9767E4] hover:bg-[#8B5CF6] shadow-none h-10 rounded-full text-xs sm:text-sm"
               >
-                Search
+                <span className="hidden sm:inline">Search</span>
+                <Search className="w-4 h-4 sm:hidden" />
               </Button>
             </div>
           </div>
 
           {/* Filter Tags */}
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="initial-hidden animate-fade-in-up animation-delay-400 flex flex-wrap justify-center gap-2 sm:gap-3">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -323,15 +325,16 @@ export default function Resources() {
                   console.log("Filter clicked:", category.id, "Category name:", category.name);
                   setActiveFilter(category.id);
                 }}
-                className={`px-4  z-50 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-3 sm:px-4 z-50 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                   activeFilter === category.id
                     ? 'bg-[#9767E4] text-[#0F1729]' 
                     : 'bg-[#0E1525]/40 border border-[#9767E4]/20 text-[#B3BDCC] hover:text-white hover:border-[#9767E4]'
                 }`}
               >
-                {category.name}
+                <span className="hidden sm:inline">{category.name}</span>
+                <span className="sm:hidden">{category.name.length > 8 ? category.name.substring(0, 8) + '...' : category.name}</span>
                 {category.count > 0 && (
-                  <span className="ml-2 text-xs opacity-70">({category.count})</span>
+                  <span className="ml-1 sm:ml-2 text-xs opacity-70">({category.count})</span>
                 )}
               </button>
             ))}
@@ -339,7 +342,7 @@ export default function Resources() {
 
           {/* Search Results Count */}
           {searchQuery && (
-            <div className="mt-6 text-[#B3BDCC]">
+            <div className="initial-hidden animate-fade-in-up animation-delay-500 mt-4 sm:mt-6 text-[#B3BDCC] text-sm sm:text-base">
               Found {filteredResources.length} resource{filteredResources.length !== 1 ? 's' : ''} 
               {searchQuery && ` for "${searchQuery}"`}
             </div>
@@ -348,23 +351,23 @@ export default function Resources() {
       </section>
 
       {/* All Resources */}
-      <section className="relative pt-0 mt-0 pb-24 bg-transparent px-8">
+      <section className="relative pt-0 mt-0 pb-12 sm:pb-16 lg:pb-24 bg-transparent">
         <div className="absolute inset-0">
-        <div className="absolute top-16 left-1/4 w-96 h-96 rounded-full bg-[#9767E4]/10 blur-[60px]"></div>
-        <div className="absolute bottom-16 right-1/4 w-80 h-80 rounded-full bg-[#26B2F2]/10 blur-[60px]"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-[#C084FC]/5 blur-[40px]"></div>
+        <div className="absolute top-16 left-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-[#9767E4]/10 blur-[60px]"></div>
+        <div className="absolute bottom-16 right-1/4 w-56 h-56 sm:w-80 sm:h-80 rounded-full bg-[#26B2F2]/10 blur-[60px]"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-[#C084FC]/5 blur-[40px]"></div>
       </div>
-        <div className="container mx-auto max-w-[1440px] px-6 relative">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="container mx-auto max-w-[1440px] px-4 sm:px-6 relative">
+          <div className="initial-hidden animate-fade-in-up  grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-2 lg:gap-8 px-2 sm:px-0">
             {filteredResources.map((resource) => {
               const IconComponent = getResourceIcon(resource.type);
               return (
                 <div
                   key={resource.id}
-                  className="bg-[#0E1525]/20 border border-[#222F44]/40 rounded-xl overflow-hidden hover:border-[#9767E4]/30 hover:bg-[#0E1525]/30 transition-all duration-300 group cursor-pointer backdrop-blur-sm"
+                  className={`initial-hidden animate-fade-in-scale bg-[#0E1525]/20 border border-[#222F44]/40 rounded-xl overflow-hidden hover:border-[#9767E4]/30 hover:bg-[#0E1525]/30 transition-all duration-300 group cursor-pointer backdrop-blur-sm w-full max-w-[180px] sm:max-w-none mx-auto`}
                 >
                   {/* Resource Image */}
-                  <div className="h-48 bg-gradient-to-br from-[#9767E4]/20 to-[#26B2F2]/20 relative overflow-hidden">
+                  <div className="h-24 sm:h-40 lg:h-48 bg-gradient-to-br from-[#9767E4]/20 to-[#26B2F2]/20 relative overflow-hidden">
                     <img
                       src={resource.image}
                       alt={resource.title}
@@ -383,53 +386,55 @@ export default function Resources() {
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute top-3 right-3">
-                      <div className="w-8 h-8 bg-[#9767E4]/80 rounded-full flex items-center justify-center backdrop-blur-sm">
-                        <IconComponent className="w-4 h-4 text-white" />
+                    <div className="absolute top-1.5 sm:top-3 right-1.5 sm:right-3">
+                      <div className="w-5 h-5 sm:w-8 sm:h-8 bg-[#9767E4]/80 rounded-full flex items-center justify-center backdrop-blur-sm">
+                        <IconComponent className="w-2.5 h-2.5 sm:w-4 sm:h-4 text-white" />
                       </div>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Tag className="w-4 h-4 text-[#9767E4]" />
+                  <div className="p-3 sm:p-5 lg:p-6">
+                    <div className="flex items-center gap-1 sm:gap-2 mb-2 sm:mb-3">
+                      <Tag className="w-2.5 h-2.5 sm:w-4 sm:h-4 text-[#9767E4]" />
                       <span className="text-xs text-[#9767E4] font-medium">
                         {resource.type}
                       </span>
                       {resource.featured && (
-                        <span className="ml-auto bg-yellow-500/20 text-yellow-400 text-xs px-2 py-1 rounded-full">
+                        <span className="ml-auto bg-yellow-500/20 text-yellow-400 text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">
                           Featured
                         </span>
                       )}
                     </div>
 
-                    <h3 className="text-lg font-bold text-[#F8FAFC] mb-3 group-hover:text-[#9767E4] transition-colors">
+                    <h3 className="text-sm sm:text-lg font-bold text-[#F8FAFC] mb-1.5 sm:mb-3 group-hover:text-[#9767E4] transition-colors">
                       {resource.title}
                     </h3>
 
-                    <p className="text-[#B3BDCC] text-sm leading-relaxed mb-4">
+                    <p className="text-[#B3BDCC] text-xs sm:text-sm leading-relaxed mb-2 sm:mb-4">
                       {resource.description}
                     </p>
 
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4 text-xs text-[#B3BDCC]">
-                        <div className="flex items-center gap-1">
-                          <Clock className="w-3 h-3" />
-                          {resource.readTime}
+                      <div className="flex items-center gap-1.5 sm:gap-4 text-xs text-[#B3BDCC]">
+                        <div className="flex items-center gap-0.5 sm:gap-1">
+                          <Clock className="w-2 h-2 sm:w-3 sm:h-3" />
+                          <span className="hidden sm:inline">{resource.readTime}</span>
+                          <span className="sm:hidden">{resource.readTime.split(' ')[0]}</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Star className="w-3 h-3 text-yellow-400" />
-                          {resource.rating}
+                        <div className="flex items-center gap-0.5 sm:gap-1">
+                          <Star className="w-2 h-2 sm:w-3 sm:h-3 text-yellow-400" />
+                          <span>{resource.rating}</span>
                         </div>
-                        <div className="flex items-center gap-1">
+                        <div className="hidden sm:flex items-center gap-1">
                           <Eye className="w-3 h-3" />
-                          {resource.views.toLocaleString()}
+                          <span>{resource.views.toLocaleString()}</span>
                         </div>
                       </div>
 
-                      <Button variant="ghost" size="sm" className="text-[#9767E4]  hover:text-[#000000] hover:bg-[#8B5CF6]  p-0">
-                        {resource.type === "Video" ? "Watch" : "Read"} <ArrowRight className="w-4 h-4 ml-1" />
+                      <Button variant="ghost" size="sm" className="text-[#9767E4] hover:text-[#000000] hover:bg-[#8B5CF6] p-1 sm:p-0 text-xs sm:text-sm">
+                        <span className="hidden sm:inline">{resource.type === "Video" ? "Watch" : "Read"}</span>
+                        <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 sm:ml-1" />
                       </Button>
                     </div>
                   </div>
@@ -439,18 +444,18 @@ export default function Resources() {
           </div>
 
           {filteredResources.length === 0 && (
-            <div className="text-center py-16">
-              <div className="w-16 h-16 bg-[#9767E4]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Search className="w-8 h-8 text-[#9767E4]" />
+            <div className="initial-hidden animate-fade-in-up animation-delay-300 text-center py-12 sm:py-16">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#9767E4]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search className="w-6 h-6 sm:w-8 sm:h-8 text-[#9767E4]" />
               </div>
-              <h3 className="text-xl font-bold text-[#F8FAFC] mb-2">No resources found</h3>
-              <p className="text-[#B3BDCC]">Try adjusting your search or filter to find what you're looking for.</p>
+              <h3 className="text-lg sm:text-xl font-bold text-[#F8FAFC] mb-2">No resources found</h3>
+              <p className="text-[#B3BDCC] text-sm sm:text-base mb-4">Try adjusting your search or filter to find what you're looking for.</p>
               <Button
                 onClick={() => {
                   setSearchQuery("");
                   setActiveFilter("all");
                 }}
-                className="mt-4 bg-[#9767E4] hover:bg-[#8B5CF6]"
+                className="mt-4 bg-[#9767E4] hover:bg-[#8B5CF6] text-sm sm:text-base"
               >
                 Clear Filters
               </Button>
