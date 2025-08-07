@@ -19,12 +19,12 @@ const NAV_ITEMS = [
   },
   {
     path: "/publish-survey",
-    label: "My Surveys",
+    label: "Publish Surveys",
     icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
   },
   {
     path: "/resources",
-    label: "Dashboard",
+    label: "Resources",
     icon: "M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"
   },
   {
@@ -179,6 +179,12 @@ const Nav = () => {
           {!user ? (
             <>
               {ThemeToggleButton}
+              <button className="p-2 rounded-full hover:bg-slate-700/50 transition-colors duration-200">
+                <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              </button>
+
               <Link to="/login" className="hidden md:inline-block border border-[#9767E4]/30 text-[#9767E4] hover:bg-[#9767E4]/10 bg-transparent px-5 py-2 rounded-full text-sm font-medium">
                 Login
               </Link>
@@ -188,11 +194,13 @@ const Nav = () => {
             </>
           ) : (
             <div className="hidden md:flex items-center space-x-3">
+
               <button className="p-2 rounded-full hover:bg-slate-700/50 transition-colors duration-200">
                 <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
               </button>
+
               <Link to="/Dashboard" className="text-slate-300 hover:text-white transition-colors duration-200 text-sm font-medium px-3 py-2">Dashboard</Link>
               <button onClick={handleLogout} className="text-slate-300 hover:text-white transition-colors duration-200 text-sm font-medium px-3 py-2">Logout</button>
               <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-slate-600 hover:border-purple-500 transition-colors duration-200">

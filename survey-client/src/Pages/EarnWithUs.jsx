@@ -174,7 +174,7 @@ export default function EarnWithUs() {
 			</section>
 
 			{/* How It Works Section */}
-			<section className="relative py-12 sm:py-16 lg:py-20 bg-transparent w-full overflow-hidden">
+			<section className="relative pb-12 sm:pb-16 lg:pb-20 pt-0 bg-transparent w-full overflow-hidden">
 				{/* Background Effects */}
 				<div className="absolute inset-0">
 					<div className="absolute top-16 left-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-[#9767E4]/10 blur-[60px]"></div>

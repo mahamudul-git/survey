@@ -13,6 +13,7 @@ import DeleteAccount from "../components/Dashboard/DeleteAccount";
 import SurveysCompleted from "../components/Dashboard/SurveysCompleted";
 import EarnWithUs from "../Pages/EarnWithUs";
 import HelpSupport from "../Pages/HelpSupport";
+import NotFound from "../Pages/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
       {
         path: "/help-support",
         element: <HelpSupport />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },

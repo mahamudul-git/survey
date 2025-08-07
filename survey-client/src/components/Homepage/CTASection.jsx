@@ -62,27 +62,6 @@ export default function CTASection() {
               <FaArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </div>
-          
-          {/* Enhanced stats section */}
-          <div className="hidden md:inline-block initial-hidden animate-fade-in-up animation-delay-400 flex flex-col sm:flex-row items-center justify-center gap-8 mb-8">
-            <div className="flex items-center gap-2 text-[#F8FAFC]/70">
-              <FaUsers className="w-5 h-5 text-[#26B2F2]" />
-              <span className="text-lg font-medium">1,000+ Active Users</span>
-            </div>
-            <div className="hidden sm:block w-1 h-1 rounded-full bg-[#F8FAFC]/30"></div>
-            <div className="flex items-center gap-2 text-[#F8FAFC]/70">
-              <FaStar className="w-5 h-5 text-[#9767E4]" />
-              <span className="text-lg font-medium">5/5 Rating</span>
-            </div>
-            <div className="hidden sm:block w-1 h-1 rounded-full bg-[#F8FAFC]/30"></div>
-            <div className="flex items-center gap-2 text-[#F8FAFC]/70">
-              <FaMoneyBillWave className="w-5 h-5 text-[#C084FC]" />
-              <span className="text-lg font-medium">$0.5M+ Earned</span>
-            </div>
-          </div>
-          
-          
-         
         </div>
       </div>
     </section>
