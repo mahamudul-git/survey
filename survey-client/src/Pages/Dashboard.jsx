@@ -222,31 +222,31 @@ const Dashboard = () => {
             {/* 1 Level button - top right corner */}
             <button className="absolute top-4 right-4 flex items-center gap-2 rounded-full px-4 py-1 text-white font-semibold text-sm" style={{ background: 'rgba(29, 79, 216, 0.54)', backdropFilter: 'blur(5px) saturate(180%)', WebkitBackdropFilter: 'blur(5px) saturate(180%)' }} onClick={() => setShowLevelPopup(true)}>
               <img src="/lavel.svg" alt="Level" className="w-5 h-5" />
-              1 Level
+              0 Level
             </button>
             
             <div className="mb-4">
               <div className="text-white/90 text-sm font-semibold mb-2">Balance:</div>
               <div className="text-white text-4xl font-bold leading-tight mb-0 flex items-center">
                 <img src="/tokenwhite.svg" alt="SSC" className="w-10 h-10 mr-2" />
-                {135}
+                {0.00}
               </div>
             </div>
             
             <div className="flex items-center justify-between w-full mb-3">
               <span className="text-white/90 text-xs font-semibold flex items-center">
                 <img src="/tokenwhite.svg" alt="SSC" className="w-4 h-4 mr-1" />
-                {135} / 
+                {0} / 
                 <img src="/tokenwhite.svg" alt="SSC" className="w-4 h-4 mr-1 ml-1" /> 500
               </span>
-              <button className="flex items-center gap-2 bg-white/95 hover:bg-white rounded-full px-4 py-2 font-semibold text-[#9767E4] text-sm border border-white/20 transition-all duration-300 hover:shadow-xl group">
+              <button className="flex items-center gap-2 bg-white/95 hover:bg-white rounded-full px-4 py-2 font-semibold text-[#000000] text-sm border border-white/20 transition-all duration-300 hover:shadow-xl group">
                 <img src="/cashout.svg" alt="Cashout" className="w-5 h-5 transition-opacity duration-300" />
                 Cashout
               </button>
             </div>
             
             <div className="w-full h-2 rounded-full bg-[#0E1525]/40 overflow-hidden">
-              <div className="h-full rounded-full bg-gradient-to-r from-white/80 to-white/60 transition-all duration-500" style={{ width: '27%' }}></div>
+              <div className="h-full rounded-full bg-gradient-to-r from-white/80 to-white/60 transition-all duration-500" style={{ width: '0%' }}></div>
             </div>
           </div>
         </div>
@@ -266,7 +266,7 @@ const Dashboard = () => {
               <div className="flex flex-col flex-1">
                 <span className="text-lg font-bold text-[#F8FAFC] flex items-center">
                   <img src="/token.svg" alt="SSC" className="w-4 h-4 mr-1" />
-                  {135}
+                  {0}
                   <span className="text-xs text-[#F8FAFC]/60 ml-2 font-semibold">SSC</span>
                 </span>
                 <span className="text-xs text-[#F8FAFC]/60">Total earnings</span>
@@ -285,7 +285,7 @@ const Dashboard = () => {
                 </svg>
               </span>
               <div className="flex flex-col flex-1">
-                <span className="text-lg font-bold text-[#F8FAFC]">2</span>
+                <span className="text-lg font-bold text-[#F8FAFC]">0</span>
                 <span className="text-xs text-[#F8FAFC]/60">Surveys Completed</span>
               </div>
               <span className="ml-auto text-[#26B2F2]/60 group-hover:text-[#26B2F2] transition-colors duration-300">

@@ -21,7 +21,9 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-2">
               <div className="mb-6">
+                
                 <span className="text-3xl font-bold bg-gradient-to-r from-[#9767E4] via-[#C084FC] to-[#26B2F2] bg-clip-text text-transparent">
+                  
                   SurveySight
                 </span>
               </div>
