@@ -4,6 +4,11 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Dashboard from "../Pages/Dashboard";
+import UserDashboard from "../Pages/UserDashboard";
+import Create from "../Pages/Create";
+import CreateScratch from "../Pages/CreateScratch";
+import CreateCopy from "../Pages/CreateCopy";
+import CreateAI from "../Pages/CreateAI";
 import AccountSettings from "../components/Dashboard/AccountSettings";
 import ProfileSetup from "../components/Dashboard/ProfileSetup";
 import ChangeEmail from "../components/Dashboard/ChangeEmail";
@@ -87,6 +92,26 @@ export const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFound />,
+      },
+      {
+        path: "/user-dashboard",
+        element: <UserDashboard />,
+      },
+      {
+        path: "/create",
+        element: <Create />,
+      },
+      {
+        path: "/create/scratch",
+        element: <CreateScratch />,
+      },
+      {
+        path: "/create/copy",
+        element: <CreateCopy />,
+      },
+      {
+        path: "/create/ai",
+        element: <CreateAI />,
       },
     ],
   },
