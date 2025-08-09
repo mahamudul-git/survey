@@ -11,8 +11,7 @@ import Home from "../components/Dashboard/Home";
 import Earn from "../components/Dashboard/Earn";
 import Account from "../components/Dashboard/Account";
 import AccountSettings from "../components/Dashboard/AccountSettings";
-import logo2 from "../../public/logo2.png";
-import { useNavigate, Outlet, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import LevelPopup from "../components/Dashboard/LevelPopup";
 import ProfileSetup from "../components/Dashboard/ProfileSetup";
@@ -24,16 +23,8 @@ import SurveysCompleted from "../components/Dashboard/SurveysCompleted";
 
 const menu = [
   { label: "Home", icon: <FaHome /> },
-  { label: "My Insight", icon: <FaClipboardList /> },
   { label: "Earn", icon: <FaCoins /> },
   { label: "Account", icon: <FaUserCircle /> },
-];
-
-const statistics = [
-  "Total earnings",
-  "Surveys Completed",
-  "Rewards Redeemed",
-  "Tests Activities",
 ];
 
 const Dashboard = () => {
@@ -42,7 +33,6 @@ const Dashboard = () => {
   const [showLevelPopup, setShowLevelPopup] = useState(false);
   const [leftOpen, setLeftOpen] = useState(false);
   const [rightOpen, setRightOpen] = useState(false);
-  const [showAccountSettings, setShowAccountSettings] = useState(false);
   const leftSidebarRef = useRef(null);
   const rightSidebarRef = useRef(null);
 
@@ -74,15 +64,6 @@ const Dashboard = () => {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [leftOpen, rightOpen]);
 
-  // Listen for route change to /dashboard/account-settings
-  useEffect(() => {
-    if (window.location.pathname === "/dashboard/account-settings") {
-      setShowAccountSettings(true);
-    } else {
-      setShowAccountSettings(false);
-    }
-  }, [window.location.pathname]);
-
   return (
     <div className="flex min-h-screen bg-[#0B111E] relative min-w-0 overflow-hidden">
       {/* Background Effects */}
@@ -102,8 +83,19 @@ const Dashboard = () => {
           <FaBars size={20} className="text-[#9767E4]" />
         </button>
         
+        {/* Switch to Publisher Button */}
+        <button
+          onClick={() => navigate("/user-dashboard")}
+          className="border border-[#9767E4]/30 text-[#9767E4] hover:bg-[#9767E4]/10 bg-transparent px-3 py-[7px] rounded-full text-xs font-medium transition-colors duration-200 flex items-center space-x-1"
+        >
+          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+          <span>Switch to Publisher</span>
+        </button>
+        
         {/* Centered Logo */}
-        <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200">
+        <Link to="/user-dashboard" className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200">
           <div className="flex items-center">
             <Icon 
               path="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" 
@@ -136,7 +128,7 @@ const Dashboard = () => {
         className={`fixed top-0 left-0 w-64 bg-[#0E1525]/80 backdrop-blur-xl border-r border-[#9767E4]/10 flex flex-col h-screen py-6 px-3 md:py-8 md:px-6 z-40 transition-all duration-300 ${leftOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}
         style={{ maxWidth: '16rem' }}
       >
-        <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200 mb-10">
+        <Link to="/user-dashboard" className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200 mb-10">
           <div className="flex items-center">
             <Icon 
               path="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" 
@@ -150,8 +142,21 @@ const Dashboard = () => {
           </div>
         </Link>
         
+        {/* Switch to Publisher Button for Desktop */}
+        <div className="hidden md:block mb-6">
+          <button
+            onClick={() => navigate("/user-dashboard")}
+            className="w-full border border-[#9767E4]/30 text-[#9767E4] hover:bg-[#9767E4]/10 bg-transparent px-4 py-3 rounded-full text-sm font-medium transition-colors duration-200 flex items-center justify-center space-x-2"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+            <span>Switch to Publisher</span>
+          </button>
+        </div>
+        
         <nav className="flex flex-col gap-3">
-          {menu.map((item, idx) => (
+          {menu.map((item) => (
             <button
               key={item.label}
               className={`flex items-center gap-3 px-4 py-3 rounded-full text-base font-semibold transition-all duration-300 group ${
@@ -173,7 +178,7 @@ const Dashboard = () => {
           ))}
         </nav>
         
-        <div className="inline md:hidden mt-auto flex flex-col">
+        <div className="md:hidden mt-auto flex flex-col">
           <button
             className="flex items-center gap-3 px-4 py-3 mb-2 rounded-full text-base font-semibold text-red-400 hover:bg-red-500/10 hover:border-red-500/30 transition-all duration-300 border border-red-500/20 w-full group backdrop-blur-sm"
             onClick={() => {/* TODO: Implement logout logic here */ }}
@@ -197,7 +202,6 @@ const Dashboard = () => {
             if (path === "/dashboard/delete-account") return <DeleteAccount />;
             if (path === "/dashboard/surveys-completed") return <SurveysCompleted />;
             if (activeTab === "home") return <Home />;
-            if (activeTab === "myinsight") return <MyInsight />;
             if (activeTab === "earn") return <Earn />;
             if (activeTab === "account") return <Account />;
             return null;
@@ -257,7 +261,7 @@ const Dashboard = () => {
           <div className="flex flex-col gap-3">
             {/* Total earnings */}
             <div className="flex items-center bg-[#0E1525]/60 border border-[#9767E4]/20 rounded-xl px-4 py-4 shadow-lg shadow-[#0B111E]/20 backdrop-blur-sm hover:bg-[#0E1525]/80 hover:border-[#9767E4]/30 transition-all duration-300 group cursor-pointer">
-              <span className="inline-block w-10 h-10 bg-gradient-to-r from-[#9767E4]/20 to-[#26B2F2]/20 border border-[#9767E4]/30 rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+              <span className="w-10 h-10 bg-gradient-to-r from-[#9767E4]/20 to-[#26B2F2]/20 border border-[#9767E4]/30 rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <rect x="4" y="7" width="16" height="10" rx="3" fill="none" stroke="#9767E4" strokeWidth="2" />
                   <circle cx="12" cy="12" r="2" fill="#9767E4" />
@@ -278,7 +282,7 @@ const Dashboard = () => {
 
             {/* Surveys Completed */}
             <div className="flex items-center bg-[#0E1525]/60 border border-[#26B2F2]/20 rounded-xl px-4 py-4 shadow-lg shadow-[#0B111E]/20 backdrop-blur-sm hover:bg-[#0E1525]/80 hover:border-[#26B2F2]/30 transition-all duration-300 group cursor-pointer">
-              <span className="inline-block w-10 h-10 bg-gradient-to-r from-[#26B2F2]/20 to-[#C084FC]/20 border border-[#26B2F2]/30 rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+              <span className="w-10 h-10 bg-gradient-to-r from-[#26B2F2]/20 to-[#C084FC]/20 border border-[#26B2F2]/30 rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="10" fill="none" stroke="#26B2F2" strokeWidth="2" />
                   <path d="M8 12l2 2 4-4" stroke="#26B2F2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -295,7 +299,7 @@ const Dashboard = () => {
 
             {/* Rewards Redeemed */}
             <div className="flex items-center bg-[#0E1525]/60 border border-[#C084FC]/20 rounded-xl px-4 py-4 shadow-lg shadow-[#0B111E]/20 backdrop-blur-sm hover:bg-[#0E1525]/80 hover:border-[#C084FC]/30 transition-all duration-300 group cursor-pointer">
-              <span className="inline-block w-10 h-10 bg-gradient-to-r from-[#C084FC]/20 to-[#9767E4]/20 border border-[#C084FC]/30 rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+              <span className="w-10 h-10 bg-gradient-to-r from-[#C084FC]/20 to-[#9767E4]/20 border border-[#C084FC]/30 rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <rect x="4" y="7" width="16" height="10" rx="3" fill="none" stroke="#C084FC" strokeWidth="2" />
                   <circle cx="12" cy="12" r="2" fill="#C084FC" />
@@ -312,7 +316,7 @@ const Dashboard = () => {
 
             {/* Tests Activities */}
             <div className="flex items-center bg-[#0E1525]/60 border border-[#9767E4]/20 rounded-xl px-4 py-4 shadow-lg shadow-[#0B111E]/20 backdrop-blur-sm hover:bg-[#0E1525]/80 hover:border-[#9767E4]/30 transition-all duration-300 group cursor-pointer">
-              <span className="inline-block w-10 h-10 bg-gradient-to-r from-[#9767E4]/20 to-[#26B2F2]/20 border border-[#9767E4]/30 rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+              <span className="w-10 h-10 bg-gradient-to-r from-[#9767E4]/20 to-[#26B2F2]/20 border border-[#9767E4]/30 rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="10" fill="none" stroke="#9767E4" strokeWidth="2" />
                   <path d="M12 8v4l3 3" stroke="#9767E4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

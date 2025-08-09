@@ -39,7 +39,7 @@ const Login = () => {
 
     signIn(email, password)
       .then(() => {
-        navigate("/dashboard");
+        navigate("/user-dashboard");
         toast.success("Login successful!");
       })
       .catch((error) => {
@@ -162,7 +162,7 @@ const Login = () => {
                     });
                     toast.success("Google sign-in successful!");
                     setTimeout(() => {
-                      navigate("/dashboard");
+                      navigate("/user-dashboard");
                     }, 1200);
                   } catch (error) {
                     setError(error.message || "Google sign-in failed.");
