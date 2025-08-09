@@ -9,6 +9,8 @@ import Create from "../Pages/Create";
 import CreateScratch from "../Pages/CreateScratch";
 import CreateCopy from "../Pages/CreateCopy";
 import CreateAI from "../Pages/CreateAI";
+import MySurveys from "../Pages/MySurveys";
+import SurveyAnalytics from "../Pages/SurveyAnalytics";
 import AccountSettings from "../components/Dashboard/AccountSettings";
 import ProfileSetup from "../components/Dashboard/ProfileSetup";
 import ChangeEmail from "../components/Dashboard/ChangeEmail";
@@ -112,6 +114,18 @@ export const router = createBrowserRouter([
       {
         path: "/create/ai",
         element: <CreateAI />,
+      },
+      {
+        path: "/my-surveys",
+        element: <MySurveys />,
+      },
+      {
+        path: "/survey/:surveyId/analytics",
+        element: <SurveyAnalytics />,
+      },
+      {
+        path: "/analytics",
+        element: <SurveyAnalytics />,
       },
     ],
   },
